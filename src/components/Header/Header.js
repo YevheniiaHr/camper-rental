@@ -1,0 +1,28 @@
+import {
+  NavList,
+  StyledAppBar,
+  StyledLink,
+  StyledToolBar,
+} from './Header.styled';
+
+const { Typography } = require('@mui/material');
+
+export const Header = () => {
+  return (
+    <StyledAppBar>
+      <StyledToolBar>
+        <Typography>CampersRental</Typography>
+
+        <nav>
+          <NavList>
+            <StyledLink to="/" end>
+              Home
+            </StyledLink>
+            <StyledLink to="/catalog">Filter</StyledLink>
+            <StyledLink to="/favorite">Favorite</StyledLink>
+          </NavList>
+        </nav>
+      </StyledToolBar>
+    </StyledAppBar>
+  );
+};
