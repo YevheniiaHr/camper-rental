@@ -5,8 +5,11 @@ import {
   selectIsLoading,
   selectError,
 } from '../../redux/cards/selectors';
-// import { fetchMoreCampers } from './operations';
 import { fetchCards } from '../../redux/cards/operations';
+import { Card } from 'components/Card/Card';
+import { AdvertsSection, StyledList } from './CardList.styled';
+import { CustomButton } from 'components/Button/Button';
+
 export const CardList = () => {
   const dispatch = useDispatch();
   const campers = useSelector(selectCards);
@@ -14,28 +17,41 @@ export const CardList = () => {
   const error = useSelector(selectError);
   const [visibleCampersCount, setVisibleCampersCount] = useState(4);
   const handleLoadMore = () => {
-    setVisibleCampersCount(prevCount => prevCount + 4);
+    setVisibleCampersCount(prevCount => Math.min(prevCount + campers.length));
   };
-  //   const handleLoadMore = () => {
-  //     dispatch(fetchMoreCampers());
-  //   };
 
   useEffect(() => {
     dispatch(fetchCards());
   }, [dispatch]);
+
   return (
-    <div>
+    <AdvertsSection>
       {error && <div>Error: {error}</div>}
-      <ul>
+      <StyledList>
         {campers.slice(0, visibleCampersCount).map(camper => (
-          <li key={camper.id}>{/* Рендеринг кемперів */}</li>
+          <Card key={camper._id} {...camper} />
         ))}
-      </ul>
+      </StyledList>
+      {visibleCampersCount < campers.length && (
+        <CustomButton
+          onClick={handleLoadMore}
+          disabled={isLoading}
+          variant="contained"
+        >
+          {isLoading ? 'Loading...' : 'Load more'}
+        </CustomButton>
+      )}
+      {/* {error && <div>Error: {error}</div>}
+      <StyledList>
+        {campers.slice(0, visibleCampersCount).map(camper => (
+          <Card key={camper._id} {...camper} />
+        ))}
+      </StyledList>
       {visibleCampersCount < campers.length && (
         <button onClick={handleLoadMore} disabled={isLoading}>
           {isLoading ? 'Loading...' : 'Load more'}
-        </button>
-      )}
-    </div>
+        </button> */}
+      {/* )} */}
+    </AdvertsSection>
   );
 };

@@ -18,7 +18,7 @@ export const Header = () => {
             <StyledLink to="/" end>
               Home
             </StyledLink>
-            <StyledLink to="/catalog">Filter</StyledLink>
+            <StyledLink to="/catalog">Catalog</StyledLink>
             <StyledLink to="/favorite">Favorite</StyledLink>
           </NavList>
         </nav>
