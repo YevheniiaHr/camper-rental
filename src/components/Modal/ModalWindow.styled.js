@@ -9,7 +9,7 @@ export const WrappModal = styled.div`
 export const ContentModal = styled.div``;
 export const GalleryWrapper = styled.div`
   width: 902px;
-  height: 310px;
+  // height: 310px;
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
@@ -63,4 +63,8 @@ export const PriceModal = styled.p`
   font-weight: 600;
   font-size: 24px;
   margin-bottom: 24px;
+`;
+export const BtnClose = styled.button`
+  border: none;
+  background-color: transparent;
 `;

@@ -37,6 +37,13 @@ export const CardList = () => {
           onClick={handleLoadMore}
           disabled={isLoading}
           variant="contained"
+          style={{
+            marginTop: '68px',
+            border: '1px solid rgba(71, 84, 103, 0.2)',
+            backgroundColor: 'transparent',
+            color: '#101828',
+            marginLeft: '467px',
+          }}
         >
           {isLoading ? 'Loading...' : 'Load more'}
         </CustomButton>

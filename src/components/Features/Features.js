@@ -1,13 +1,16 @@
 import {
   DetailsWrapper,
   FeaturesWrapper,
+  FormWrapper,
   ListFeatures,
+  TitleText,
 } from './Features.styled';
 import sprite from '../sprite.svg';
 import { Item } from './Item';
 import { VehicleDetails } from 'components/VehicleDetails/VehicleDetails';
-export const Features = ({ details, campers }) => {
-  //   console.log('Details in Features component:', details);
+import { Forma } from 'components/Forma/Forma';
+
+export const Features = ({ id, details }) => {
   const getIconByKey = key => {
     switch (key) {
       case 'airConditioner':
@@ -102,23 +105,29 @@ export const Features = ({ details, campers }) => {
   };
   return (
     <FeaturesWrapper>
-      {' '}
-      <ListFeatures>
-        {Object.entries(details).map(([key, value]) => {
-          console.log(details);
-          return (
-            <Item
-              key={key}
-              icon={getIconByKey(key)}
-              text={value}
-              castomKey={key}
-            />
-          );
-        })}
-      </ListFeatures>
       <DetailsWrapper>
-        <VehicleDetails {...campers} />
+        <ListFeatures>
+          {details &&
+            Object.entries(details).map(([key, value]) => {
+              if (value !== 0 && value !== false) {
+                return (
+                  <Item
+                    key={key}
+                    icon={getIconByKey(key)}
+                    text={value}
+                    castomKey={key}
+                  />
+                );
+              }
+              return null;
+            })}
+        </ListFeatures>
+        <TitleText>Vehicle details</TitleText>
+        <VehicleDetails id={id} />
       </DetailsWrapper>
+      <FormWrapper>
+        <Forma />
+      </FormWrapper>
     </FeaturesWrapper>
   );
 };

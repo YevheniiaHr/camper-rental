@@ -1,4 +1,3 @@
-// import { useDispatch } from 'react-redux';
 import sprite from '../sprite.svg';
 import { CustomButton } from 'components/Button/Button';
 
@@ -43,7 +42,6 @@ export const Card = ({
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-  const firstLine = description.slice(0, 70);
 
   const iconData = [
     { icon: 'icon-adults', text: '3 adults' },
@@ -61,7 +59,10 @@ export const Card = ({
         <Container>
           <TitleBox>
             <Title>{name}</Title>
-            <Price>${price}</Price>
+            <Price>€{price},00</Price>
+            <svg width="16px" height="16px">
+              <use xlinkHref={sprite + '#icon-heart'} />
+            </svg>
           </TitleBox>
 
           <LocationWrap>
@@ -78,7 +79,7 @@ export const Card = ({
               {location}
             </Location>
           </LocationWrap>
-          <Text>{firstLine} ...</Text>
+          <Text>{description} ...</Text>
           <ListWrap>
             <ListDetails>
               {iconData.map((item, index) => (
@@ -95,6 +96,7 @@ export const Card = ({
         isOpen={isModalOpen}
         onClose={handleCloseModal}
         data={{
+          _id,
           name,
           price,
           rating,

@@ -15,5 +15,5 @@ export const StyledAppBar = styled(AppBar)`
   background-color: green;
 `;
 export const StyledToolBar = styled(Toolbar)`
-  justify-content: space-between;
+  justify-content: space-around;
 `;

@@ -1,13 +1,13 @@
-import { Container } from '@mui/material';
 import { CardList } from 'components/CardList/CardList';
 import { Filter } from 'components/Filter/Filter';
+import { FilterContainer } from 'components/Styles/FilterContainer.styled';
 
 const FilterPage = () => {
   return (
-    <Container style={{ marginTop: '64px', display: 'flex' }}>
+    <FilterContainer>
       <Filter />
       <CardList />
-    </Container>
+    </FilterContainer>
   );
 };
 export default FilterPage;

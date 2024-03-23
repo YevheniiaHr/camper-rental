@@ -5,11 +5,16 @@ export const Item = styled.li`
   border-radius: 20px;
   padding: 24px;
   margin: 0;
-  // max-width: 888px;
-  // height: 358px;
-  //   display: flex;
-  //   justify-content: space-between;
-  // gap: 24px;
+  box-sizing: border-box;
+  max-width: 888px;
+
+  // @media screen and (min-width: 768px) {
+  //   max-width: 700px;
+  // }
+
+  // @media screen and (min-width: 1440px) {
+  //   max-width: 888px;
+  // }
 `;
 export const Title = styled.h2`
   font-weight: 600;
@@ -32,6 +37,9 @@ export const Location = styled.p`
 export const Text = styled.p`
   margin-bottom: 24px;
   font-size: 16px;
+  text-overflow: ellipsis;
+  overflow: hidden;
+  white-space: nowrap;
 `;
 export const ListDetails = styled.ul`
   display: flex;
@@ -49,8 +57,6 @@ export const DetailItem = styled.li`
   text-align: center;
 `;
 export const Img = styled.img`
-  //   height: 100%;
-  //   width: 100%;
   border-radius: 10px;
   object-fit: cover;
   width: 290px;
@@ -72,11 +78,10 @@ export const TitleBox = styled.div`
   margin-bottom: 8px;
 `;
 export const ItemWrapper = styled.div`
-  display: flex;
-  // height: 360px;
-  gap: 24px;
-  // max-width: 888px;
-  // height: 358px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    gap: 24px;
+  }
 `;
 export const ListWrap = styled.div`
   display: flex;
