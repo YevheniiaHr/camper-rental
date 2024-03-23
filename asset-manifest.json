@@ -1,14 +1,14 @@
 {
   "files": {
-    "main.css": "/camper-rental/static/css/main.e6c36dc3.css",
-    "main.js": "/camper-rental/static/js/main.547d1127.js",
-    "static/media/sprite.svg": "/camper-rental/static/media/sprite.9cc6f59f16e774dad160151aae5e6ca0.svg",
+    "main.css": "/camper-rental/static/css/main.3d8a6eaa.css",
+    "main.js": "/camper-rental/static/js/main.690d939d.js",
+    "static/media/sprite.svg": "/camper-rental/static/media/sprite.c8ae9f4d828b99e9a241dcc3da642521.svg",
     "index.html": "/camper-rental/index.html",
-    "main.e6c36dc3.css.map": "/camper-rental/static/css/main.e6c36dc3.css.map",
-    "main.547d1127.js.map": "/camper-rental/static/js/main.547d1127.js.map"
+    "main.3d8a6eaa.css.map": "/camper-rental/static/css/main.3d8a6eaa.css.map",
+    "main.690d939d.js.map": "/camper-rental/static/js/main.690d939d.js.map"
   },
   "entrypoints": [
-    "static/css/main.e6c36dc3.css",
-    "static/js/main.547d1127.js"
+    "static/css/main.3d8a6eaa.css",
+    "static/js/main.690d939d.js"
   ]
 }
