@@ -18,8 +18,11 @@ import {
   ListWrap,
 } from './Card.styled';
 import { ListItem } from './ListItem';
-// import { useState } from 'react';
+import { useState } from 'react';
 
+import { ModalWindow } from 'components/Modal/ModalWindow';
+import Modal from 'react-modal';
+Modal.setAppElement('#modal');
 export const Card = ({
   _id,
   name,
@@ -31,15 +34,15 @@ export const Card = ({
   reviews,
   details,
 }) => {
-  // const [showModal, setShowModal] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // const handleShowMore = () => {
-  //   setShowModal(true);
-  // };
+  const handleShowMore = () => {
+    setIsModalOpen(true);
+  };
 
-  // const handleCloseModal = () => {
-  //   setShowModal(false);
-  // };
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   const firstLine = description.slice(0, 70);
 
   const iconData = [
@@ -82,10 +85,26 @@ export const Card = ({
                 <ListItem key={index} icon={item.icon} text={item.text} />
               ))}
             </ListDetails>
-            <CustomButton type="button">Show More</CustomButton>
+            <CustomButton onClick={handleShowMore} type="button">
+              Show More
+            </CustomButton>
           </ListWrap>
         </Container>
       </ItemWrapper>
+      <ModalWindow
+        isOpen={isModalOpen}
+        onClose={handleCloseModal}
+        data={{
+          name,
+          price,
+          rating,
+          location,
+          reviews,
+          gallery,
+          description,
+          details,
+        }}
+      ></ModalWindow>
     </Item>
   );
 };

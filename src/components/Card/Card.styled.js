@@ -12,12 +12,10 @@ export const Item = styled.li`
   // gap: 24px;
 `;
 export const Title = styled.h2`
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 24px;
 `;
 export const Price = styled.p`
-  font-family: var(--font-family);
   font-weight: 600;
   font-size: 24px;
 `;
@@ -47,7 +45,7 @@ export const DetailItem = styled.li`
   //   width: 126px;
   // height: 44px;
   display: flex;
-  gap: 8px;
+  // gap: 8px;
   text-align: center;
 `;
 export const Img = styled.img`

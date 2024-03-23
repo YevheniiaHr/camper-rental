@@ -5,7 +5,7 @@ import {
   StyledToolBar,
 } from './Header.styled';
 
-const { Typography } = require('@mui/material');
+const { Typography, Container } = require('@mui/material');
 
 export const Header = () => {
   return (

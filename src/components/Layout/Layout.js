@@ -5,13 +5,13 @@ import { Header } from 'components/Header/Header';
 export const Layout = () => {
   return (
     <>
-      <Container>
-        <Header />
+      {/* <Container> */}
+      <Header />
 
-        <Suspense fallback={null}>
-          <Outlet />
-        </Suspense>
-      </Container>
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
+      {/* </Container> */}
     </>
   );
 };
