@@ -16,7 +16,7 @@ export const FavoriteCardList = () => {
   }, []);
   return (
     <div>
-      <h2>Here will be your favorite campers, push ❤️ </h2>
+      <h2>Here will be your favorite campers, push ❤️ on the cataloge page</h2>
 
       <div>
         {favoriteCards.map((cardId, gallery, reviews, name, price) => (
