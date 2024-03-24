@@ -11,12 +11,12 @@ export const FavoriteCardList = () => {
     const favoriteCardIds = Object.keys(allStorageItems).filter(
       key => allStorageItems[key] === 'true'
     );
-    console.log('Favorite Card Ids:', favoriteCardIds);
+
     setFavoriteCards(favoriteCardIds);
   }, []);
   return (
     <div>
-      <h2>Favorite Cards</h2>
+      <h2>Here will be your favorite campers, push ❤️ </h2>
 
       <div>
         {favoriteCards.map((cardId, gallery, reviews, name, price) => (
