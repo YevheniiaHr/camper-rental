@@ -1,50 +1,40 @@
 import { Formik } from 'formik';
-import { Form, Field, FormGroup, ErrorMessage, FormText } from './Forma.styled';
+import {
+  Form,
+  Field,
+  FormGroup,
+  ErrorMessage,
+  FormText,
+  FieldComment,
+} from './Forma.styled';
 import * as Yup from 'yup';
 import { FormTitle } from './Forma.styled';
 import { CustomButton } from 'components/Button/Button';
+import Notiflix from 'notiflix';
 
-// export const Forma = () => {
-//   return <FormTitle>Book your campervan now</FormTitle>;
-// };
 const FormSchema = Yup.object().shape({
   name: Yup.string().required('Name is required'),
-  number: Yup.string().required('Number is required'),
+  email: Yup.string().required('Email is required'),
+  date: Yup.string().required('Date is required'),
+  comment: Yup.string(),
 });
 
 export const Forma = () => {
-  //   const contacts = useSelector(selectContacts);
-  //   const dispatch = useDispatch();
-
-  //   const handleSubmit = (values, { resetForm }) => {
-  //     const { name, number } = values;
-
-  // if (
-  //   contacts.find(
-  //     contact =>
-  //       contact.name.toLowerCase().trim() === name.toLowerCase().trim()
-  //   )
-  // ) {
-  //   resetForm();
-  //   Notiflix.Notify.failure(`${name} is already in contacts!`);
-  //   return;
-  // }
-
-  //     dispatch(addContact({ name, number }));
-  //     Notiflix.Notify.success(
-  //       `Contact with name ${name} has been added successfully to contacts list.`
-  //     );
-  //     resetForm();
-  //   };
+  const handleSubmit = action => {
+    Notiflix.Notify.success(`Your order is accepted.`);
+    action.resetForm();
+  };
 
   return (
     <Formik
       initialValues={{
         name: '',
-        number: '',
+        email: '',
+        date: '',
+        comment: '',
       }}
       validationSchema={FormSchema}
-      //   onSubmit={handleSubmit}
+      onSubmit={handleSubmit}
     >
       <Form>
         <FormTitle>Book your campervan now</FormTitle>
@@ -61,31 +51,27 @@ export const Forma = () => {
 
         <FormGroup>
           <Field
-            name="e-mail"
+            name="email"
             type="text"
             placeholder="Email"
-            // pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+            pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
           />
-          <ErrorMessage name="e-mail" component="span" />
+          <ErrorMessage name="email" component="span" />
         </FormGroup>
         <FormGroup>
           <Field
-            name="number"
-            type="number"
+            name="date"
+            type="string"
             placeholder="Booking date"
-            // pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
+            pattern="(0[1-9]|1[1,2])(\/|-)(0[1-9]|[12][0-9]|3[01])(\/|-)(19|20)\d{2}"
           />
-          <ErrorMessage name="number" component="span" />
+          <ErrorMessage name="date" component="span" />
         </FormGroup>
         <FormGroup>
-          <Field
-            name="text"
-            type="text"
-            placeholder="Comment"
-            // pattern="\+?\d{1,4}?[ .\-\s]?\(?\d{1,3}?\)?[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,4}[ .\-\s]?\d{1,9}"
-          />
+          <FieldComment name="comment" type="text" placeholder="Comment" />
         </FormGroup>
         <CustomButton
+          type="submit"
           style={{
             marginTop: '24px',
             marginLeft: '24px',
@@ -93,7 +79,6 @@ export const Forma = () => {
         >
           Send
         </CustomButton>
-        {/* <button type="submit">Add contact</button> */}
       </Form>
     </Formik>
   );

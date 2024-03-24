@@ -1,23 +1,48 @@
 import { createSelector } from 'reselect';
-
-export const selectCards = state => state.campers.campers;
-
-export const selectIsLoading = state => state.campers.isLoading;
-
-export const selectEquipmentFilter = state => state.campers.filters.equipment;
-
-export const selectVehicleTypeFilter = state =>
-  state.campers.filters.vehicleType;
-
 export const selectError = state => state.campers.error;
-export const selectVehicleDetails = createSelector(
-  [selectCards],
-  ({ form, length, width, height, tank, consumption }) => ({
-    form,
-    length,
-    width,
-    height,
-    tank,
-    consumption,
-  })
+export const selectIsLoading = state => state.campers.isLoading;
+export const selectCards = state => state.campers.campers;
+export const selectFilters = state => state.campers.filters;
+
+export const selectFilteredLocation = createSelector(
+  [selectFilters],
+  filters => filters.location
+);
+
+export const selectEquipmentFilter = createSelector(
+  [selectFilters],
+  filters => filters.equipment
+);
+
+export const selectVehicleTypeFilter = createSelector(
+  [selectFilters],
+  filters => filters.vehicleType
+);
+
+export const selectFilteredCampers = createSelector(
+  [
+    selectCards,
+    selectFilteredLocation,
+    selectEquipmentFilter,
+    selectVehicleTypeFilter,
+  ],
+  (campers, location, equipment, vehicleType) => {
+    return campers.filter(camper => {
+      const locationMatch =
+        !location ||
+        camper.location.toLowerCase().includes(location.toLowerCase());
+
+      const equipmentMatch =
+        !equipment ||
+        (typeof equipment === 'string' &&
+          camper.details[equipment.toLowerCase()]);
+
+      const vehicleTypeMatch =
+        !vehicleType ||
+        (Array.isArray(vehicleType) &&
+          vehicleType.includes(camper.form.toLowerCase()));
+
+      return locationMatch && equipmentMatch && vehicleTypeMatch;
+    });
+  }
 );

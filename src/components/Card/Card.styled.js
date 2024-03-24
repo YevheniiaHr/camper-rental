@@ -50,10 +50,8 @@ export const DetailItem = styled.li`
   background-color: #f2f4f7;
   border-radius: 100px;
   padding: 12px 18px;
-  //   width: 126px;
-  // height: 44px;
   display: flex;
-  // gap: 8px;
+
   text-align: center;
 `;
 export const Img = styled.img`
@@ -88,4 +86,7 @@ export const ListWrap = styled.div`
   flex-direction: column;
   gap: 24px;
   // justify-content: space-around;
+`;
+export const TextDetailItem = styled.p`
+  margin-left: 8px;
 `;

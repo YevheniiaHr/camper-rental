@@ -13,6 +13,7 @@ const handleRejected = (state, action) => {
 const initialState = {
   campers: [],
   filters: {
+    location: '',
     equipment: [],
     vehicleType: [],
   },
@@ -24,10 +25,25 @@ const campersSlice = createSlice({
   initialState,
   reducers: {
     updateEquipmentFilter(state, action) {
-      state.filters.equipment = action.payload;
+      state.filters = {
+        ...state.filters,
+        equipment: action.payload,
+      };
+      // state.filters.equipment = action.payload;
     },
     updateVehicleTypeFilter(state, action) {
-      state.filters.vehicleType = action.payload;
+      state.filters = {
+        ...state.filters,
+        vehicleType: action.payload,
+      };
+      // state.filters.vehicleType = action.payload;
+    },
+    setFilter(state, action) {
+      state.filters = {
+        ...state.filters,
+        location: action.payload,
+      };
+      // state.filters.location = action.payload;
     },
   },
   extraReducers: builder => {
@@ -48,4 +64,6 @@ const campersSlice = createSlice({
       .addCase(filterCampers.rejected, handleRejected);
   },
 });
+export const { setFilter, updateEquipmentFilter, updateVehicleTypeFilter } =
+  campersSlice.actions;
 export const campersReducer = campersSlice.reducer;

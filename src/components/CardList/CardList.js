@@ -16,6 +16,7 @@ export const CardList = () => {
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const [visibleCampersCount, setVisibleCampersCount] = useState(4);
+
   const handleLoadMore = () => {
     setVisibleCampersCount(prevCount => Math.min(prevCount + campers.length));
   };
@@ -43,22 +44,12 @@ export const CardList = () => {
             backgroundColor: 'transparent',
             color: '#101828',
             marginLeft: '467px',
+            transition: 'color 0.3s ease',
           }}
         >
           {isLoading ? 'Loading...' : 'Load more'}
         </CustomButton>
       )}
-      {/* {error && <div>Error: {error}</div>}
-      <StyledList>
-        {campers.slice(0, visibleCampersCount).map(camper => (
-          <Card key={camper._id} {...camper} />
-        ))}
-      </StyledList>
-      {visibleCampersCount < campers.length && (
-        <button onClick={handleLoadMore} disabled={isLoading}>
-          {isLoading ? 'Loading...' : 'Load more'}
-        </button> */}
-      {/* )} */}
     </AdvertsSection>
   );
 };

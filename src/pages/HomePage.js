@@ -1,7 +1,8 @@
-// import { Container } from '@mui/material';
-// import { CardList } from 'components/CardList/CardList';
-
 const HomePage = () => {
-  return <div style={{ marginTop: '64px' }}>Home Page</div>;
+  return (
+    <>
+      <h1>Home Page</h1>
+    </>
+  );
 };
 export default HomePage;

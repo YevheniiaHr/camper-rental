@@ -17,11 +17,12 @@ import {
   ListWrap,
 } from './Card.styled';
 import { ListItem } from './ListItem';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
 import { ModalWindow } from 'components/Modal/ModalWindow';
 import Modal from 'react-modal';
 Modal.setAppElement('#modal');
+
 export const Card = ({
   _id,
   name,
@@ -33,8 +34,13 @@ export const Card = ({
   reviews,
   details,
 }) => {
+  const [isFavorite, setIsFavorite] = useState(
+    localStorage.getItem(_id) === 'true'
+  );
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  useEffect(() => {
+    localStorage.setItem(_id, isFavorite);
+  }, [_id, isFavorite]);
   const handleShowMore = () => {
     setIsModalOpen(true);
   };
@@ -42,7 +48,9 @@ export const Card = ({
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-
+  const handleFavoriteToggle = () => {
+    setIsFavorite(prev => !prev);
+  };
   const iconData = [
     { icon: 'icon-adults', text: '3 adults' },
     { icon: 'automatic-1', text: 'Automatic' },
@@ -60,9 +68,25 @@ export const Card = ({
           <TitleBox>
             <Title>{name}</Title>
             <Price>€{price},00</Price>
-            <svg width="16px" height="16px">
-              <use xlinkHref={sprite + '#icon-heart'} />
-            </svg>
+            <CustomButton
+              style={{
+                width: '16px',
+                height: '16px',
+                backgroundColor: 'transparent',
+              }}
+              onClick={handleFavoriteToggle}
+              type="button"
+            >
+              {isFavorite ? (
+                <svg width="16px" height="16px">
+                  <use xlinkHref={sprite + '#icon-heart-fill'} />
+                </svg>
+              ) : (
+                <svg width="16px" height="16px">
+                  <use xlinkHref={sprite + '#icon-heart'} />
+                </svg>
+              )}
+            </CustomButton>
           </TitleBox>
 
           <LocationWrap>
@@ -75,7 +99,7 @@ export const Card = ({
             <Location>
               <svg width="16px" height="16px">
                 <use xlinkHref={sprite + '#icon-map-pin'} />
-              </svg>{' '}
+              </svg>
               {location}
             </Location>
           </LocationWrap>

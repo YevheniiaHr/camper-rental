@@ -15,9 +15,21 @@ export const FormGroup = styled.label`
 export const Field = styled(FormikField)`
   padding: 4px;
   border-radius: 10px;
-  //   padding: 18px 337px 18px 18px;
   width: 400px;
   height: 56px;
+  border: none;
+  background-color: #f7f7f7;
+  font-family: var(--font-family);
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 125%;
+  color: rgba(16, 24, 40, 0.6);
+`;
+export const FieldComment = styled(FormikField)`
+  padding: 4px;
+  border-radius: 10px;
+  width: 400px;
+  height: 114px;
   border: none;
   background-color: #f7f7f7;
   font-family: var(--font-family);

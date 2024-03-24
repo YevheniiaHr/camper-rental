@@ -32,3 +32,17 @@ p {
 img {
   display: block;
 }
+/* .btn-load-more {
+  margin-top: 68px;
+  border: 1px solid rgba(71, 84, 103, 0.2);
+  background-color: transparent;
+  color: #101828;
+  margin-left: 467px;
+  transition: color 0.3s ease;
+}
+.btn-load-more:hover,
+.btn-load-more:focus {
+  border-color: #e44848;
+  outline: none;
+  box-shadow: 0 0 0 2px #ff5722;
+} */

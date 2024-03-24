@@ -1,5 +1,5 @@
 import sprite from '../sprite.svg';
-import { DetailItem } from './Card.styled';
+import { DetailItem, TextDetailItem } from './Card.styled';
 
 export const ListItem = ({ icon, text }) => {
   return (
@@ -7,7 +7,7 @@ export const ListItem = ({ icon, text }) => {
       <svg width="20px" height="20px">
         <use xlinkHref={sprite + `#${icon}`} />
       </svg>
-      <span>{text}</span>
+      <TextDetailItem>{text}</TextDetailItem>
     </DetailItem>
   );
 };
