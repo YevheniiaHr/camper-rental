@@ -43,7 +43,7 @@ export const CardFavorite = ({
     <Item>
       <ItemWrapper>
         <Img src={gallery[0]} alt={name} />
-        {console.log('Gallery:', gallery[0])}
+
         <Container>
           <TitleBox>
             <Title>{name}</Title>
