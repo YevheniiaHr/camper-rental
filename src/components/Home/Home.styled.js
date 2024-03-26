@@ -6,18 +6,20 @@ import heroMobile2x from '../../components/img/camper-mobile@2x.png';
 import heroTablet1x from '../../components/img/camper-tablet.png';
 import heroTablet2x from '../../components/img/camper-tablet@2x.png';
 export const SectionHero = styled.section`
-  //   padding-bottom: 40px;
-  //   padding-right: 20px;
-  //   padding-top: 127px;
-  // margin: 0 auto;
+  // padding-bottom: 40px;
+  // padding-right: 20px;
+  // padding-left: 20px;
+  padding-top: 200px;
+  margin: 0 auto;
   outline: 2px solid red;
+      height: auto;
 
-  height: 100vh;
-   background-image: linear-gradient(
-        rgba(46, 47, 66, 0.7),
-        rgba(46, 47, 66, 0.7)
+  
+  background-image: linear-gradient(
+  rgba(46, 47, 66, 0.7),
+  rgba(46, 47, 66, 0.7)
       ),
-      url(${heroMobile1x});
+  url(${heroMobile1x});
     background-size: cover;
     @media (min-device-pixel-ratio: 2),
       (min-resolution: 192dpi),
@@ -28,7 +30,7 @@ export const SectionHero = styled.section`
     // padding-bottom: 48px;
     // padding-right: 32px;
     // padding-top: 189px;
-
+height: 100vh;
     background-image: linear-gradient(
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
@@ -64,9 +66,12 @@ export const SectionHero = styled.section`
   }
 `;
 export const HomeWrapper = styled.div`
-  width: 100%;
+  margin-top: 40px;
   margin-right: auto;
   margin-left: auto;
+}
+  // width: 100%;
+ 
   padding-left: 15px;
   padding-right: 15px;
   @media screen and (min-width: 768px) {
