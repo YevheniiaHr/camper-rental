@@ -1,4 +1,4 @@
-import { Container, HomeWrapper, SectionHero } from './Home.styled';
+import { HomeWrapper, SectionHero } from './Home.styled';
 import { MainTitle } from './MainTitle/MainTitle';
 import { Navigation } from './Navigation/Navigation';
 

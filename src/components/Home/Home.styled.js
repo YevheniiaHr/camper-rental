@@ -1,33 +1,66 @@
 import styled from '@emotion/styled';
 import hero from '../../components/img/camper.png';
-
+import hero2x from '../../components/img/camper@2x.png';
+import heroMobile1x from '../../components/img/camper-mobile.png';
+import heroMobile2x from '../../components/img/camper-mobile@2x.png';
+import heroTablet1x from '../../components/img/camper-tablet.png';
+import heroTablet2x from '../../components/img/camper-tablet@2x.png';
 export const SectionHero = styled.section`
   //   padding-bottom: 40px;
   //   padding-right: 20px;
   //   padding-top: 127px;
+  // margin: 0 auto;
   outline: 2px solid red;
-  // display: contents;
+
   height: 100vh;
+   background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(${heroMobile1x});
+    background-size: cover;
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${heroMobile2x});
 
   @media screen and (min-width: 768px) {
-    padding-bottom: 48px;
-    padding-right: 32px;
-    padding-top: 189px;
+    // padding-bottom: 48px;
+    // padding-right: 32px;
+    // padding-top: 189px;
+
+    background-image: linear-gradient(
+        rgba(46, 47, 66, 0.7),
+        rgba(46, 47, 66, 0.7)
+      ),
+      url(${heroTablet1x});
+    background-size: cover;
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${heroTablet2x});
+    }
   }
 
   @media screen and (min-width: 1440px) {
-    padding-right: 0;
-    padding-bottom: 171px;
-    padding-top: 200px;
+    // padding-right: 0;
+    // padding-bottom: 171px;
+    // padding-top: 200px;
 
-    display: flex;
-    gap: 76px;
+    // display: flex;
+    // gap: 76px;
+
     background-image: linear-gradient(
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)
       ),
       url(${hero});
     background-size: cover;
+    @media (min-device-pixel-ratio: 2),
+      (min-resolution: 192dpi),
+      (min-resolution: 2dppx) {
+      background-image: url(${hero2x});
+    }
   }
 `;
 export const HomeWrapper = styled.div`
