@@ -12,8 +12,8 @@ export const SectionHero = styled.section`
   padding-top: 200px;
   margin: 0 auto;
   outline: 2px solid red;
-      height: auto;
-
+      // height: auto;
+height: 100vh;
   
   background-image: linear-gradient(
   rgba(46, 47, 66, 0.7),
@@ -30,7 +30,7 @@ export const SectionHero = styled.section`
     // padding-bottom: 48px;
     // padding-right: 32px;
     // padding-top: 189px;
-height: 100vh;
+// height: 100vh;
     background-image: linear-gradient(
         rgba(46, 47, 66, 0.7),
         rgba(46, 47, 66, 0.7)

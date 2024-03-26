@@ -59,47 +59,72 @@ export const Filter = () => {
         </Label>
       </LocatioWrap>
       <h2>Equipment</h2>
-      <FilterBtn onClick={() => handleEquipmentFilter('AC')}>
-        <svg width="32px" height="33px">
-          <use xlinkHref={sprite + '#icon-ac'} />
+      <FilterBtn
+        width="95px"
+        height="95px"
+        onClick={() => handleEquipmentFilter('AC')}
+      >
+        <svg width="32px" height="32px">
+          <use xlinkHref={sprite + '#ac-1'} />
         </svg>
+        AC
       </FilterBtn>
-      <FilterBtn onClick={() => handleEquipmentFilter('Automatic')}>
-        <svg width="33px" height="33px">
-          <use xlinkHref={sprite + '#icon-automatic'} />
+      <FilterBtn
+        width="95px"
+        height="95px"
+        onClick={() => handleEquipmentFilter('Automatic')}
+      >
+        <svg width="32px" height="32px">
+          <use xlinkHref={sprite + '#automatic-1'} />
         </svg>
+        Automatic
       </FilterBtn>
-      <FilterBtn onClick={() => handleEquipmentFilter('Automatic')}>
+      <FilterBtn
+        width="95px"
+        height="95px"
+        onClick={() => handleEquipmentFilter('Automatic')}
+      >
         <svg width="33px" height="33px">
           <use xlinkHref={sprite + '#icon-kitchen'} />
         </svg>
+        Kitchen
       </FilterBtn>
-      <FilterBtn onClick={() => handleEquipmentFilter('Automatic')}>
-        <svg width="33px" height="33px">
-          <use xlinkHref={sprite + '#icon-tv'} />
+      <FilterBtn
+        width="95px"
+        height="95px"
+        onClick={() => handleEquipmentFilter('Automatic')}
+      >
+        <svg width="32px" height="32px">
+          <use xlinkHref={sprite + '#icon-Tv-1'} />
         </svg>
+        TV
       </FilterBtn>
-      <FilterBtn onClick={() => handleEquipmentFilter('Automatic')}>
+      <FilterBtn
+        width="95px"
+        height="95px"
+        onClick={() => handleEquipmentFilter('Automatic')}
+      >
         <svg width="33px" height="33px">
           <use xlinkHref={sprite + '#icon-shower'} />
         </svg>
+        Shower/WC
       </FilterBtn>
 
       <h2>Vehicle Type</h2>
       <FilterBtn onClick={() => handleVehicleTypeFilter('fullyIntegrated')}>
-        <svg width="33px" height="33px">
+        <svg width="40px" height="28px">
           <use xlinkHref={sprite + '#icon-van'} />
         </svg>
         Fully Integrated
       </FilterBtn>
       <FilterBtn onClick={() => handleVehicleTypeFilter('camperVan')}>
-        <svg width="33px" height="33px">
+        <svg width="40px" height="28px">
           <use xlinkHref={sprite + '#icon-fully-integrated'} />
         </svg>
         Van
       </FilterBtn>
       <FilterBtn onClick={() => handleVehicleTypeFilter('camperVan')}>
-        <svg width="33px" height="33px">
+        <svg width="40px" height="28px">
           <use xlinkHref={sprite + '#icon-alcov'} />
         </svg>
         Alcov
