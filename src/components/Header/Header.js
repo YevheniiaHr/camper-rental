@@ -1,28 +1,12 @@
-import {
-  NavList,
-  StyledAppBar,
-  StyledLink,
-  StyledToolBar,
-} from './Header.styled';
+// import { StyledAppBar, StyledToolBar } from './Header.styled';
 
-import { Typography } from '@mui/material';
+// import { Typography, useMediaQuery } from '@mui/material';
+// import { Navigation } from './Navigation';
+import { MobileView } from './MobileView';
+import { DesktopView } from './DesktopView';
+import { useMediaQuery } from '@mui/material';
 
 export const Header = () => {
-  return (
-    <StyledAppBar>
-      <StyledToolBar>
-        <Typography>CampersRental</Typography>
-
-        <nav>
-          <NavList>
-            <StyledLink to="/" end>
-              Home
-            </StyledLink>
-            <StyledLink to="/catalog">Catalog</StyledLink>
-            <StyledLink to="/favorite">Favorite</StyledLink>
-          </NavList>
-        </nav>
-      </StyledToolBar>
-    </StyledAppBar>
-  );
+  const isDesktop = useMediaQuery('(min-width:1440px)');
+  return <header>{isDesktop ? <DesktopView /> : <MobileView />}</header>;
 };
