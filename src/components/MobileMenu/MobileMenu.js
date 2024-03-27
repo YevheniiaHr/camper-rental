@@ -1,7 +1,7 @@
 // import { useMediaQuery } from '@mui/material';
 import sprite from '../../components/sprite.svg';
-import { useLocation } from 'react-router-dom';
-import React, { useEffect } from 'react';
+// import { useLocation } from 'react-router-dom';
+import React from 'react';
 import { createPortal } from 'react-dom';
 import { CloseBtn, MobileWrapp } from './MobileMenu.styled';
 import { Navigation } from 'components/Header/Navigation';
