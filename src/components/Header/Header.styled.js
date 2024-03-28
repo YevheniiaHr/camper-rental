@@ -32,7 +32,7 @@ export const MobViewWrapper = styled.div`
   background-color: green;
   color: white;
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-end;
   align-items: center;
   // @media (min-width: 768px) {
   //   height: 84px;
@@ -41,7 +41,7 @@ export const MobViewWrapper = styled.div`
   //   padding-right: 32px;
   // }
 `;
-export const OpenMenuBtn = styled.button`
+export const BurgerButton = styled.button`
   background-color: transparent;
   border: none;
   cursor: pointer;

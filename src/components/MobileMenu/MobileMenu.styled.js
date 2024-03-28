@@ -5,14 +5,14 @@ export const MobileWrapp = styled.div`
   left: 0;
   height: 100vh;
   width: 100%;
-  background-color: #e6533c;
+  background-color: #e44848;
   color: white;
   display: flex;
   flex-direction: column;
-  justify-content: space-between;
+  justify-content: flex-start;
   //   padding: 20px 20px;
   z-index: 1000;
-  //   visibility: hidden;
+  // visibility: hidden;
   overflow: hidden;
 `;
 export const CloseBtn = styled.button`

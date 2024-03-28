@@ -1,6 +1,6 @@
 import { NavList, StyledLink } from './Header.styled';
 
-export const Navigation = () => {
+export const Navigation = ({ OpenMenu }) => {
   return (
     <nav>
       <NavList>
