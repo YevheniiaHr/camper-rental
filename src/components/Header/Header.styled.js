@@ -2,19 +2,24 @@ import { NavLink } from 'react-router-dom';
 import styled from '@emotion/styled';
 export const StyledLink = styled(NavLink)`
   color: black;
+  cursor: pointer;
+
+  &:hover {
+    color: orange;
+  }
   &.active {
     color: orange;
   }
 `;
 export const NavList = styled.ul`
   display: flex;
-      flex-direction: column;
-    display: flex;
-    gap: 20px;
-    align-items: center;
-}
- @media (min-width: 1440px) {
-    gap: 20px;
+  flex-direction: column;
+  gap: 20px;
+  align-items: center;
+  margin-top: 50px;
+  @media (min-width: 1440px) {
+    flex-direction: row;
+    margin-top: 0;
   }
 `;
 
@@ -50,10 +55,10 @@ export const DeskHeaderWrap = styled.div`
 
   width: 1440px;
 
-  height: 84px;
+  height: 70px;
 
   display: flex;
-  flex-direction: row;
-  justify-content: space-between;
+
+  justify-content: center;
   align-items: center;
 `;
