@@ -1,9 +1,9 @@
 import { useSelector } from 'react-redux';
 import { Label, ListDetails, Row, Value } from './VehicleDetails.styled';
-import { selectCards } from '../../redux/cards/selectors';
+import { selectCampers } from '../../redux/cards/selectors';
 
 export const VehicleDetails = ({ id }) => {
-  const data = useSelector(selectCards);
+  const data = useSelector(selectCampers);
 
   const selectedData = data.find(item => item._id === id);
 

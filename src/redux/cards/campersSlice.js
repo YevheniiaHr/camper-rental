@@ -12,6 +12,7 @@ const handleRejected = (state, action) => {
 
 const initialState = {
   campers: [],
+  favorite: [],
   filters: {
     location: '',
     equipment: [],
@@ -24,6 +25,13 @@ const campersSlice = createSlice({
   name: 'campers',
   initialState,
   reducers: {
+    addFavorite(state, { payload }) {
+      state.favorite.push(payload);
+    },
+    deleteFavorite(state, { payload }) {
+      const index = state.favorite.findIndex(item => item._id === payload);
+      state.favorite.splice(index, 1);
+    },
     updateEquipmentFilter(state, action) {
       state.filters = {
         ...state.filters,
@@ -64,6 +72,11 @@ const campersSlice = createSlice({
       .addCase(filterCampers.rejected, handleRejected);
   },
 });
-export const { setFilter, updateEquipmentFilter, updateVehicleTypeFilter } =
-  campersSlice.actions;
+export const {
+  setFilter,
+  updateEquipmentFilter,
+  updateVehicleTypeFilter,
+  addFavorite,
+  deleteFavorite,
+} = campersSlice.actions;
 export const campersReducer = campersSlice.reducer;

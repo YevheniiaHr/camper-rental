@@ -60,8 +60,8 @@ export const Filter = () => {
       </LocatioWrap>
       <h2>Equipment</h2>
       <FilterBtn
-        width="95px"
-        height="95px"
+        // width="95px"
+        // height="95px"
         onClick={() => handleEquipmentFilter('AC')}
       >
         <svg width="32px" height="32px">
@@ -70,8 +70,8 @@ export const Filter = () => {
         AC
       </FilterBtn>
       <FilterBtn
-        width="95px"
-        height="95px"
+        // width="95px"
+        // height="95px"
         onClick={() => handleEquipmentFilter('Automatic')}
       >
         <svg width="32px" height="32px">

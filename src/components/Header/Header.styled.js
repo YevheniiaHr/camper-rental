@@ -53,7 +53,7 @@ export const DeskHeaderWrap = styled.div`
 
   // transform: translateX(-50%);
 
-  width: 1440px;
+  // width: 1440px;
 
   height: 70px;
 

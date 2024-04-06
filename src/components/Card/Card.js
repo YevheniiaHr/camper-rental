@@ -17,10 +17,13 @@ import {
   ListWrap,
 } from './Card.styled';
 import { ListItem } from './ListItem';
-import { useEffect, useState } from 'react';
+import { useState } from 'react';
 
 import { ModalWindow } from 'components/Modal/ModalWindow';
 import Modal from 'react-modal';
+import { useDispatch, useSelector } from 'react-redux';
+import { selectFavoriteCampers } from '../../redux/cards/selectors';
+import { addFavorite, deleteFavorite } from '../../redux/cards/campersSlice';
 Modal.setAppElement('#modal');
 
 export const Card = ({
@@ -34,13 +37,11 @@ export const Card = ({
   reviews,
   details,
 }) => {
-  const [isFavorite, setIsFavorite] = useState(
-    localStorage.getItem(_id) === 'true'
-  );
+  const favorite = useSelector(selectFavoriteCampers);
+  const dispatch = useDispatch();
+  const isFavorite = favorite.find(item => item._id === _id);
   const [isModalOpen, setIsModalOpen] = useState(false);
-  useEffect(() => {
-    localStorage.setItem(_id, isFavorite);
-  }, [_id, isFavorite]);
+
   const handleShowMore = () => {
     setIsModalOpen(true);
   };
@@ -49,7 +50,33 @@ export const Card = ({
     setIsModalOpen(false);
   };
   const handleFavoriteToggle = () => {
-    setIsFavorite(prev => !prev);
+    isFavorite
+      ? dispatch(
+          deleteFavorite({
+            _id,
+            name,
+            price,
+            rating,
+            location,
+            description,
+            gallery,
+            reviews,
+            details,
+          })
+        )
+      : dispatch(
+          addFavorite({
+            _id,
+            name,
+            price,
+            rating,
+            location,
+            description,
+            gallery,
+            reviews,
+            details,
+          })
+        );
   };
   const iconData = [
     { icon: 'icon-adults', text: '3 adults' },

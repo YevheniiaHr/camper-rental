@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
-  selectCards,
+  selectCampers,
   selectIsLoading,
   selectError,
 } from '../../redux/cards/selectors';
@@ -12,7 +12,7 @@ import { CustomButton } from 'components/Button/Button';
 
 export const CardList = () => {
   const dispatch = useDispatch();
-  const campers = useSelector(selectCards);
+  const campers = useSelector(selectCampers);
   const isLoading = useSelector(selectIsLoading);
   const error = useSelector(selectError);
   const [visibleCampersCount, setVisibleCampersCount] = useState(4);
