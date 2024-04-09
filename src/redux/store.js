@@ -17,6 +17,7 @@ const persistConfig = {
   key: 'campers',
   version: 1,
   storage,
+  whitelist: 'favorite',
 };
 
 const persistedReducer = persistReducer(persistConfig, campersReducer);

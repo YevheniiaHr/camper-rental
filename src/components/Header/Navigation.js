@@ -7,15 +7,21 @@ export const Navigation = ({ onClose }) => {
   return (
     <nav>
       <NavList>
-        <StyledLink to="/" end onClick={haandleClick}>
-          Home
-        </StyledLink>
-        <StyledLink to="/catalog" onClick={haandleClick}>
-          Catalog
-        </StyledLink>
-        <StyledLink to="/favorite" onClick={haandleClick}>
-          Favorite
-        </StyledLink>
+        <li>
+          <StyledLink to="/" end onClick={haandleClick}>
+            Home
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/catalog" onClick={haandleClick}>
+            Catalog
+          </StyledLink>
+        </li>
+        <li>
+          <StyledLink to="/favorite" onClick={haandleClick}>
+            Favorite
+          </StyledLink>
+        </li>
       </NavList>
     </nav>
   );

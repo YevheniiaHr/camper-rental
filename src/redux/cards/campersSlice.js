@@ -60,7 +60,7 @@ const campersSlice = createSlice({
       .addCase(fetchCards.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.campers = action.payload;
+        state.campers = [...state.campers, ...action.payload];
       })
       .addCase(fetchCards.rejected, handleRejected)
       .addCase(filterCampers.pending, handlePending)

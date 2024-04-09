@@ -11,14 +11,11 @@ const FilterPage = lazy(() => import('../pages/FilterPage'));
 const FavoritePage = lazy(() => import('../pages/FavoritePage'));
 
 export const App = () => {
-  // const location = useLocation();
-
-  // const isHomePage = location.pathname === '/';
   return (
     <>
       <Routes>
-        <Route index element={<HomePage />} />
         <Route path="/" element={<Layout />}>
+          <Route index element={<HomePage />} />
           <Route path="/catalog" element={<FilterPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
           <Route path="*" element={<HomePage />} />

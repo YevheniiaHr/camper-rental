@@ -20,8 +20,6 @@ export const FavoriteCardList = () => {
   const favorite = useSelector(selectFavoriteCampers);
   return (
     <div>
-      <h2>Here will be your favorite campers, push ❤️ on the cataloge page</h2>
-
       <ul>
         {favorite.map(({ _id, gallery, reviews, name, price }) => (
           <Card

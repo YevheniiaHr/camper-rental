@@ -69,41 +69,25 @@ export const Filter = () => {
         </svg>
         AC
       </FilterBtn>
-      <FilterBtn
-        // width="95px"
-        // height="95px"
-        onClick={() => handleEquipmentFilter('Automatic')}
-      >
+      <FilterBtn onClick={() => handleEquipmentFilter('Automatic')}>
         <svg width="32px" height="32px">
           <use xlinkHref={sprite + '#automatic-1'} />
         </svg>
         Automatic
       </FilterBtn>
-      <FilterBtn
-        width="95px"
-        height="95px"
-        onClick={() => handleEquipmentFilter('Automatic')}
-      >
+      <FilterBtn onClick={() => handleEquipmentFilter('Automatic')}>
         <svg width="33px" height="33px">
           <use xlinkHref={sprite + '#icon-kitchen'} />
         </svg>
         Kitchen
       </FilterBtn>
-      <FilterBtn
-        width="95px"
-        height="95px"
-        onClick={() => handleEquipmentFilter('Automatic')}
-      >
+      <FilterBtn onClick={() => handleEquipmentFilter('Automatic')}>
         <svg width="32px" height="32px">
           <use xlinkHref={sprite + '#icon-Tv-1'} />
         </svg>
         TV
       </FilterBtn>
-      <FilterBtn
-        width="95px"
-        height="95px"
-        onClick={() => handleEquipmentFilter('Automatic')}
-      >
+      <FilterBtn onClick={() => handleEquipmentFilter('Automatic')}>
         <svg width="33px" height="33px">
           <use xlinkHref={sprite + '#icon-shower'} />
         </svg>
