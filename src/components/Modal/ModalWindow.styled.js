@@ -32,7 +32,7 @@ export const ItemAdd = styled.li`
   padding-bottom: 24px;
 `;
 export const LinkAdd = styled.a`
-  // color: ${({ active }) => (active ? '#E44848' : 'black')};
+  color: ${({ active }) => (active ? '#E44848' : 'black')};
   position: relative;
   font-weight: 600;
   font-size: 20px;
@@ -43,7 +43,8 @@ export const LinkAdd = styled.a`
   &::after {
     content: ${({ active }) => (active ? '""' : 'none')};
     position: absolute;
-    width: 100%;
+    width: ${({ active }) => (active ? '100%' : '0')};
+
     height: 4px;
     left: 0;
     bottom: -1px;

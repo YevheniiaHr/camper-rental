@@ -137,7 +137,11 @@ export const Card = ({
                 <ListItem key={index} icon={item.icon} text={item.text} />
               ))}
             </ListDetails>
-            <CustomButton onClick={handleShowMore} type="button">
+            <CustomButton
+              onClick={handleShowMore}
+              type="button"
+              hoverBackgroundColor="#d84343"
+            >
               Show More
             </CustomButton>
           </ListWrap>

@@ -1,4 +1,4 @@
-import { Route, Routes, useLocation } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 // import HomePage from 'pages/HomePage';
 // import FilterPage from 'pages/FilterPage';
 // import FavoritePage from 'pages/FavoritePage';
@@ -11,14 +11,14 @@ const FilterPage = lazy(() => import('../pages/FilterPage'));
 const FavoritePage = lazy(() => import('../pages/FavoritePage'));
 
 export const App = () => {
-  const location = useLocation();
+  // const location = useLocation();
 
-  const isHomePage = location.pathname === '/';
+  // const isHomePage = location.pathname === '/';
   return (
     <>
       <Routes>
-        <Route path="/" element={isHomePage ? null : <Layout />}>
-          <Route index element={<HomePage />} />
+        <Route index element={<HomePage />} />
+        <Route path="/" element={<Layout />}>
           <Route path="/catalog" element={<FilterPage />} />
           <Route path="/favorite" element={<FavoritePage />} />
           <Route path="*" element={<HomePage />} />

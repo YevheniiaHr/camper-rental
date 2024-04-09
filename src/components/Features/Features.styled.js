@@ -37,7 +37,7 @@ export const Icon = styled.div`
 `;
 
 export const Text = styled.div`
-  margin-right: 2px; /* Додати пробіл між значеннями */
+  margin-right: 2px;
 `;
 
 export const CustomKey = styled.div`

@@ -38,10 +38,13 @@ const customStyles = {
   },
 };
 export const ModalWindow = ({ isOpen, onClose, data }) => {
-  const [activeTab, setActiveTab] = useState('null');
+  const [activeTab, setActiveTab] = useState('features');
+  const [isFeaturesContentVisible, setIsFeaturesContentVisible] =
+    useState(false);
 
   const handleTabChange = tab => {
-    setActiveTab(tab);
+    setActiveTab(tab === activeTab ? null : tab);
+    setIsFeaturesContentVisible(tab === 'features');
   };
   const closeOnWrapper = event => {
     if (event.target === event.currentTarget) {
@@ -94,23 +97,26 @@ export const ModalWindow = ({ isOpen, onClose, data }) => {
                   <LinkAdd
                     onClick={() => handleTabChange('features')}
                     active={activeTab === 'features'}
+                    className={activeTab === 'features' ? 'active' : ''}
                   >
                     Features
                   </LinkAdd>
                 </ItemAdd>
                 <ItemAdd>
                   <LinkAdd
-                    onClick={() => handleTabChange('reviews')}
+                    onClick={() => {
+                      handleTabChange('reviews');
+                    }}
                     active={activeTab === 'reviews'}
+                    className={activeTab === 'reviews' ? 'active' : ''}
                   >
                     Reviews
                   </LinkAdd>
                 </ItemAdd>
               </ListAdd>
-              {activeTab === 'features' && (
+              {isFeaturesContentVisible && (
                 <Features id={data._id} details={data.details} />
               )}
-
               {activeTab === 'reviews' && <Reviews reviews={data.reviews} />}
             </ContentModal>
           </WrappModal>
