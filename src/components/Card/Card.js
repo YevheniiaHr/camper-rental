@@ -15,6 +15,7 @@ import {
   LocationWrap,
   ListDetails,
   ListWrap,
+  ButtonFavorite,
 } from './Card.styled';
 import { ListItem } from './ListItem';
 import { useState } from 'react';
@@ -86,6 +87,7 @@ export const Card = ({
     { icon: 'icon-bed', text: '2 beds' },
     { icon: 'ac-1', text: 'AC' },
   ];
+
   return (
     <Item>
       <ItemWrapper>
@@ -94,16 +96,10 @@ export const Card = ({
         <Container>
           <TitleBox>
             <Title>{name}</Title>
-            <Price>€{price},00</Price>
-            <CustomButton
-              style={{
-                width: '16px',
-                height: '16px',
-                backgroundColor: 'transparent',
-              }}
-              onClick={handleFavoriteToggle}
-              type="button"
-            >
+            <Price>
+              {/* {Number(price).toLocaleString('en', { minimumFractionDigits: 2 })} */}
+            </Price>
+            <ButtonFavorite onClick={handleFavoriteToggle} type="button">
               {isFavorite ? (
                 <svg width="16px" height="16px">
                   <use xlinkHref={sprite + '#icon-heart-fill'} />
@@ -113,7 +109,7 @@ export const Card = ({
                   <use xlinkHref={sprite + '#icon-heart'} />
                 </svg>
               )}
-            </CustomButton>
+            </ButtonFavorite>
           </TitleBox>
 
           <LocationWrap>

@@ -7,8 +7,13 @@ const FavoritePage = () => {
 
   return (
     <AdvertsSection>
-      <h2>Here will be your favorite campers, push ❤️ on the cataloge page</h2>
-      {favoriteCampers.length > 0 && <CardList campers={favoriteCampers} />}
+      {favoriteCampers.length === 0 ? (
+        <h2>
+          Here will be your favorite campers, push ❤️ on the cataloge page
+        </h2>
+      ) : (
+        <CardList campers={favoriteCampers} />
+      )}
     </AdvertsSection>
   );
 };

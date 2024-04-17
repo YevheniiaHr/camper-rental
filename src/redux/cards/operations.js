@@ -8,7 +8,7 @@ export const fetchCards = createAsyncThunk(
   async ({ page, limit }, thunkAPI) => {
     try {
       const result = await fetchAllCards({ page, limit });
-      console.log(result);
+
       return result;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

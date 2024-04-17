@@ -6,13 +6,11 @@ import heroMobile2x from '../../components/img/camper-mobile@2x.png';
 import heroTablet1x from '../../components/img/camper-tablet.png';
 import heroTablet2x from '../../components/img/camper-tablet@2x.png';
 export const SectionHero = styled.section`
-  // padding-bottom: 40px;
-  // padding-right: 20px;
-  // padding-left: 20px;
+  
   padding-top: 200px;
   margin: 0 auto;
-  outline: 2px solid red;
-      // height: auto;
+
+    
 height: 100vh;
   
   background-image: linear-gradient(

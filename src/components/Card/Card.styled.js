@@ -90,3 +90,7 @@ export const ListWrap = styled.div`
 export const TextDetailItem = styled.p`
   margin-left: 8px;
 `;
+export const ButtonFavorite = styled.button`
+  background-color: transparent;
+  border: none;
+`;

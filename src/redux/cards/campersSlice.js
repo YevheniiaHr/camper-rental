@@ -15,8 +15,8 @@ const initialState = {
   favorite: [],
   filters: {
     location: '',
-    equipment: [],
-    vehicleType: [],
+    equipment: {},
+    vehicleType: '',
   },
   isLoading: false,
   error: null,
@@ -32,26 +32,15 @@ const campersSlice = createSlice({
       const index = state.favorite.findIndex(item => item._id === payload);
       state.favorite.splice(index, 1);
     },
-    updateEquipmentFilter(state, action) {
-      state.filters = {
-        ...state.filters,
-        equipment: action.payload,
-      };
-      // state.filters.equipment = action.payload;
+    setVehicle(state, action) {
+      state.filters.vehicleType = action.payload;
     },
-    updateVehicleTypeFilter(state, action) {
-      state.filters = {
-        ...state.filters,
-        vehicleType: action.payload,
-      };
-      // state.filters.vehicleType = action.payload;
+    setEquipment(state, action) {
+      state.filters.equipment = action.payload;
     },
-    setFilter(state, action) {
-      state.filters = {
-        ...state.filters,
-        location: action.payload,
-      };
-      // state.filters.location = action.payload;
+
+    setLocation(state, action) {
+      state.filters.location = action.payload;
     },
   },
   extraReducers: builder => {
@@ -73,9 +62,9 @@ const campersSlice = createSlice({
   },
 });
 export const {
-  setFilter,
-  updateEquipmentFilter,
-  updateVehicleTypeFilter,
+  setLocation,
+  setVehicle,
+  setEquipment,
   addFavorite,
   deleteFavorite,
 } = campersSlice.actions;

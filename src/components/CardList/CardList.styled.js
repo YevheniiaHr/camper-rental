@@ -8,4 +8,5 @@ export const StyledList = styled.ul`
 `;
 export const AdvertsSection = styled.main`
   flex-grow: 1;
+  margin-top: 64px;
 `;

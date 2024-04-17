@@ -5,7 +5,5 @@ export const FilterContainer = styled.div`
   gap: 43px;
   margin-top: 64px;
   width: 100%;
-  @media (min-width: 1440px) {
-    flex-direction: row;
-  }
+  align-items: flex-end;
 `;

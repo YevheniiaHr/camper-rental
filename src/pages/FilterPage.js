@@ -12,6 +12,7 @@ import {
   selectIsLoading,
 } from '../redux/cards/selectors';
 import { fetchAllCards } from 'service/api';
+import { LoadMoreBtn } from 'components/Button/LoadMoreBtn.styled';
 
 const FilterPage = () => {
   const limit = 4;
@@ -36,33 +37,23 @@ const FilterPage = () => {
     dispatch(fetchCards({ page, limit }));
   }, [dispatch, page, limit]);
   return (
-    <FilterContainer>
+    <>
       <Filter />
-      {error && <div>Error: {error}</div>}
-      {isLoading ? <Loader /> : <CardList campers={campers} />}
+      <FilterContainer>
+        {error && <div>Error: {error}</div>}
+        {isLoading ? <Loader /> : <CardList campers={campers} />}
 
-      {page < totalPage && (
-        <CustomButton
-          onClick={handleLoadMore}
-          disabled={isLoading}
-          variant="contained"
-          borderColor="1px solid rgba(71, 84, 103, 0.2)"
-          backgroundColor="transparent"
-          textColor="#101828"
-          hoverBackgroundColor="transparent"
-          hoverBorderColor="#E44848"
-          style={{
-            marginTop: '68px',
-
-            marginLeft: '467px',
-          }}
-        >
-          {' '}
-          Load more
-          {isLoading ? <Loader /> : 'Load more'}
-        </CustomButton>
-      )}
-    </FilterContainer>
+        {page < totalPage && (
+          <LoadMoreBtn
+            onClick={handleLoadMore}
+            disabled={isLoading}
+            variant="contained"
+          >
+            {isLoading ? <Loader /> : 'Load more'}
+          </LoadMoreBtn>
+        )}
+      </FilterContainer>
+    </>
   );
 };
 export default FilterPage;
