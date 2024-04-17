@@ -1,12 +1,5 @@
 import { useDispatch, useSelector } from 'react-redux';
-import {
-  FilterInput,
-  Input,
-  Label,
-  LocatioWrap,
-  SideBar,
-  VehicleType,
-} from './Filter.styled';
+import { FilterInput, Label, SideBar } from './Filter.styled';
 import sprite from '../sprite.svg';
 import {
   setLocation,
@@ -14,18 +7,19 @@ import {
   setEquipment,
 } from '../../redux/cards/campersSlice';
 import {
-  selectEquipmentFilter,
+  // selectEquipmentFilter,
   selectFilteredLocation,
-  selectVehicleTypeFilter,
+  // selectVehicleTypeFilter,
 } from '../../redux/cards/selectors';
 import { Form, Formik } from 'formik';
+import { CustomButton } from 'components/Button/Button';
 
 export const Filter = () => {
   const dispatch = useDispatch();
   const locationFilter = useSelector(selectFilteredLocation);
 
-  const equipmentFilter = useSelector(selectEquipmentFilter);
-  const vehicleTypeFilter = useSelector(selectVehicleTypeFilter);
+  // const equipmentFilter = useSelector(selectEquipmentFilter);
+  // const vehicleTypeFilter = useSelector(selectVehicleTypeFilter);
 
   // const handleEquipmentFilter = filter => {
   //   const newFilter = [...equipmentFilter];
@@ -134,7 +128,9 @@ export const Filter = () => {
             </svg>
             Alcov
           </label>
-          <button type="submit">Search</button>
+          <CustomButton type="submit" hoverBackgroundColor="#d84343">
+            Search
+          </CustomButton>
         </Form>
       </Formik>
     </SideBar>
