@@ -1,7 +1,6 @@
 import { CardList } from 'components/CardList/CardList';
 import { Filter } from 'components/Filter/Filter';
 import { FilterContainer } from 'components/Styles/FilterContainer.styled';
-import { CustomButton } from 'components/Button/Button';
 import { Loader } from 'components/Loader';
 import { useEffect, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
