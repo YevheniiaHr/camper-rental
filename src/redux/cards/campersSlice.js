@@ -14,7 +14,7 @@ const initialState = {
   campers: [],
   favorite: [],
   filters: {
-    location: 'Kyiv, Ukraine',
+    location: '',
     equipment: {},
     vehicleType: '',
   },

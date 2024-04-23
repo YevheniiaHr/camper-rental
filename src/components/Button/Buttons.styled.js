@@ -2,6 +2,7 @@ import styled from '@emotion/styled';
 
 export const Button = styled.button`
   border-radius: 200px;
+  margin-top: ${props => props.marginTop || '0px'};
 
   background-color: #e44848;
   color: #f2f4f7;

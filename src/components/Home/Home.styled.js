@@ -5,13 +5,10 @@ import heroMobile1x from '../../components/img/camper-mobile.png';
 import heroMobile2x from '../../components/img/camper-mobile@2x.png';
 import heroTablet1x from '../../components/img/camper-tablet.png';
 import heroTablet2x from '../../components/img/camper-tablet@2x.png';
-export const SectionHero = styled.section`
-  
+export const HomeWrapper = styled.section`
   padding-top: 200px;
   margin: 0 auto;
-
-    
-height: 100vh;
+  height: 100vh;
   
   background-image: linear-gradient(
   rgba(46, 47, 66, 0.7),
@@ -60,10 +57,11 @@ height: 100vh;
       (min-resolution: 192dpi),
       (min-resolution: 2dppx) {
       background-image: url(${hero2x});
+      
     }
   }
 `;
-export const HomeWrapper = styled.div`
+export const SectionHero = styled.div`
   margin-top: 40px;
   margin-right: auto;
   margin-left: auto;

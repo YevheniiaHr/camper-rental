@@ -1,5 +1,17 @@
 import { useDispatch, useSelector } from 'react-redux';
-import { FilterInput, Label, SideBar } from './Filter.styled';
+import {
+  FilterName,
+  HaedingFilt,
+  Icon,
+  IconText,
+  IconVehicle,
+  InputWrapper,
+  Label,
+  LocationInput,
+  SideBar,
+  VehicleEquipmentWrapp,
+  VehicleInput,
+} from './Filter.styled';
 import sprite from '../sprite.svg';
 import {
   setLocation,
@@ -13,6 +25,7 @@ import {
 } from '../../redux/cards/selectors';
 import { Form, Formik } from 'formik';
 import { CustomButton } from 'components/Button/Button';
+import { useState } from 'react';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -42,13 +55,15 @@ export const Filter = () => {
   //   }
   //   dispatch(setVehicle(newFilter));
   // };
+
   return (
     <SideBar>
+      Location
       <Formik
         initialValues={{
           location: '',
           ac: 0,
-          transmition: 'automatic',
+          transmission: 'automatic',
           kitchen: 0,
           tv: 0,
           shower: 0,
@@ -63,72 +78,125 @@ export const Filter = () => {
         }}
       >
         <Form>
-          <Label>
-            <FilterInput name="location" type="text" value={locationFilter} />
-          </Label>
-          <h2>Equipment</h2>
-          <label>
-            <FilterInput type="checkbox" value="ac" name="ac" />
-            <svg width="32px" height="32px">
-              <use xlinkHref={sprite + '#ac-1'} />
-            </svg>
-          </label>
-          AC
-          <label>
-            <FilterInput type="checkbox" value="automatic" name="transmition" />
-            <svg width="32px" height="32px">
-              <use xlinkHref={sprite + '#automatic-1'} />
-            </svg>
-            Automatic
-          </label>
-          <label>
-            <FilterInput type="checkbox" value="kitchen" name="kitchen" />
-            <svg width="33px" height="33px">
-              <use xlinkHref={sprite + '#icon-kitchen'} />
-            </svg>
-            Kitchen
-          </label>
-          <label>
-            <FilterInput type="checkbox" value="tv" name="tv" />
-            <svg width="32px" height="32px">
-              <use xlinkHref={sprite + '#icon-Tv-1'} />
-            </svg>
-            TV
-          </label>
-          <label>
-            <FilterInput type="checkbox" value="shower" name="shower" />
-            <svg width="33px" height="33px">
-              <use xlinkHref={sprite + '#icon-shower'} />
-            </svg>
-            Shower/WC
-          </label>
-          <h2>Vehicle Type</h2>
-          <label>
-            <FilterInput
-              type="radio"
-              name="vehicleType"
-              value="fullyIntegrated"
+          <InputWrapper>
+            <Label htmlFor="location"> </Label>
+            <Icon width="16px" height="16px">
+              <use xlinkHref={sprite + '#icon-map-pin'} />
+            </Icon>
+            <LocationInput
+              name="location"
+              type="text"
+              placeholder="Kyiv, Ukraine"
+              id="location"
             />
-            <svg width="40px" height="28px">
-              <use xlinkHref={sprite + '#icon-van'} />
-            </svg>
-            Fully Integrated
-          </label>
-          <label>
-            <FilterInput type="radio" name="vehicleType" value="camperVan" />
-            <svg width="40px" height="28px">
-              <use xlinkHref={sprite + '#icon-fully-integrated'} />
-            </svg>
-            Van
-          </label>
-          <label>
-            <FilterInput type="radio" name="vehicleType" value="alcov" />
-            <svg width="40px" height="28px">
-              <use xlinkHref={sprite + '#icon-alcov'} />
-            </svg>
-            Alcov
-          </label>
-          <CustomButton type="submit" hoverBackgroundColor="#d84343">
+          </InputWrapper>
+          <HaedingFilt>Filters</HaedingFilt>
+          <FilterName>Vehicle equipment</FilterName>
+          <VehicleEquipmentWrapp>
+            <InputWrapper>
+              <Label htmlFor="ac">
+                <IconText>AC</IconText>
+                <VehicleInput
+                  type="checkbox"
+                  value="airConditioner"
+                  name="ac"
+                  id="ac"
+                />
+                <IconVehicle width="32px" height="32px">
+                  <use xlinkHref={sprite + '#ac-1'} />
+                </IconVehicle>
+              </Label>
+            </InputWrapper>
+            <InputWrapper>
+              <Label>
+                <IconText> Automatic</IconText>
+                <VehicleInput
+                  type="checkbox"
+                  value="transmissionAutomatic"
+                  name="transmission"
+                />
+                <IconVehicle width="32px" height="32px">
+                  <use xlinkHref={sprite + '#automatic-1'} />
+                </IconVehicle>
+              </Label>
+            </InputWrapper>
+            <InputWrapper>
+              <IconText> Kitchen</IconText>
+              <Label>
+                <VehicleInput type="checkbox" value="kitchen" name="kitchen" />
+                <IconVehicle width="33px" height="33px">
+                  <use xlinkHref={sprite + '#icon-kitchen'} />
+                </IconVehicle>
+              </Label>
+            </InputWrapper>
+            <InputWrapper>
+              <IconText>TV</IconText>
+              <Label>
+                <VehicleInput type="checkbox" value="TV" name="tv" />
+                <IconVehicle width="32px" height="32px">
+                  <use xlinkHref={sprite + '#icon-Tv-1'} />
+                </IconVehicle>
+              </Label>
+            </InputWrapper>
+            <InputWrapper>
+              <IconText> Shower/WC</IconText>
+              <Label>
+                <VehicleInput
+                  type="checkbox"
+                  value="showerToilet"
+                  name="shower"
+                />
+                <IconVehicle width="33px" height="33px">
+                  <use xlinkHref={sprite + '#icon-shower'} />
+                </IconVehicle>
+              </Label>
+            </InputWrapper>
+          </VehicleEquipmentWrapp>
+          <FilterName>Vehicle Type</FilterName>
+          <VehicleEquipmentWrapp>
+            <InputWrapper>
+              <IconText> Van</IconText>
+              <Label>
+                <VehicleInput
+                  type="radio"
+                  name="vehicleType"
+                  value="panelTruck"
+                />
+                <IconVehicle width="40px" height="28px">
+                  <use xlinkHref={sprite + '#icon-fully-integrated'} />
+                </IconVehicle>
+              </Label>
+            </InputWrapper>
+            <InputWrapper>
+              <IconText>Fully Integrated</IconText>
+              <Label>
+                <VehicleInput
+                  type="radio"
+                  name="vehicleType"
+                  value="fullyIntegrated"
+                />
+                <IconVehicle width="40px" height="28px">
+                  <use xlinkHref={sprite + '#icon-van'} />
+                </IconVehicle>
+              </Label>
+            </InputWrapper>
+
+            <InputWrapper>
+              <IconText>Alcov</IconText>
+              <Label>
+                <VehicleInput type="radio" name="vehicleType" value="alcove" />
+                <IconVehicle width="40px" height="28px">
+                  <use xlinkHref={sprite + '#icon-alcov'} />
+                </IconVehicle>
+              </Label>
+            </InputWrapper>
+          </VehicleEquipmentWrapp>
+
+          <CustomButton
+            type="submit"
+            hoverBackgroundColor="#d84343"
+            marginTop="65px"
+          >
             Search
           </CustomButton>
         </Form>

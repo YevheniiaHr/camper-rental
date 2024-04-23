@@ -4,11 +4,11 @@ import { Navigation } from './Navigation/Navigation';
 
 export const Home = () => {
   return (
-    <SectionHero>
-      <HomeWrapper>
+    <HomeWrapper>
+      <SectionHero>
         <MainTitle />
         <Navigation />
-      </HomeWrapper>
-    </SectionHero>
+      </SectionHero>
+    </HomeWrapper>
   );
 };
