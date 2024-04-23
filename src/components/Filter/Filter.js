@@ -18,18 +18,12 @@ import {
   setVehicle,
   setEquipment,
 } from '../../redux/cards/campersSlice';
-import {
-  // selectEquipmentFilter,
-  selectFilteredLocation,
-  // selectVehicleTypeFilter,
-} from '../../redux/cards/selectors';
+import {} from '../../redux/cards/selectors';
 import { Form, Formik } from 'formik';
 import { CustomButton } from 'components/Button/Button';
-import { useState } from 'react';
 
 export const Filter = () => {
   const dispatch = useDispatch();
-  const locationFilter = useSelector(selectFilteredLocation);
 
   // const equipmentFilter = useSelector(selectEquipmentFilter);
   // const vehicleTypeFilter = useSelector(selectVehicleTypeFilter);
