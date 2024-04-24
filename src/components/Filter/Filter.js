@@ -1,13 +1,16 @@
 import { useDispatch } from 'react-redux';
 import {
   FilterName,
+  FlexContainer,
   HaedingFilt,
   Icon,
   IconText,
   IconVehicle,
   InputWrapper,
   Label,
+  LocatioWrap,
   LocationInput,
+  LocationLabel,
   SideBar,
   VehicleEquipmentWrapp,
   VehicleInput,
@@ -21,6 +24,7 @@ import {
 import {} from '../../redux/cards/selectors';
 import { Form, Formik } from 'formik';
 import { CustomButton } from 'components/Button/Button';
+import { useState } from 'react';
 
 export const Filter = () => {
   const dispatch = useDispatch();
@@ -49,7 +53,11 @@ export const Filter = () => {
   //   }
   //   dispatch(setVehicle(newFilter));
   // };
+  const [isChecked, setIsChecked] = useState(false);
 
+  const toggleCheckbox = () => {
+    setIsChecked(!isChecked);
+  };
   return (
     <SideBar>
       Location
@@ -72,116 +80,148 @@ export const Filter = () => {
         }}
       >
         <Form>
-          <InputWrapper>
-            <Label htmlFor="location"> </Label>
-            <Icon width="16px" height="16px">
-              <use xlinkHref={sprite + '#icon-map-pin'} />
-            </Icon>
-            <LocationInput
-              name="location"
-              type="text"
-              placeholder="Kyiv, Ukraine"
-              id="location"
-            />
-          </InputWrapper>
+          <LocatioWrap>
+            <LocationLabel>
+              <Icon width="16px" height="16px">
+                <use xlinkHref={sprite + '#icon-map-pin'} />
+              </Icon>
+              <LocationInput name="location" type="text" placeholder="City" />
+            </LocationLabel>
+          </LocatioWrap>
           <HaedingFilt>Filters</HaedingFilt>
           <FilterName>Vehicle equipment</FilterName>
           <VehicleEquipmentWrapp>
             <InputWrapper>
-              <Label htmlFor="ac">
-                <IconText>AC</IconText>
+              <Label
+                htmlFor="ac"
+                isChecked={isChecked}
+                onClick={toggleCheckbox}
+              >
                 <VehicleInput
                   type="checkbox"
                   value="airConditioner"
                   name="ac"
                   id="ac"
                 />
-                <IconVehicle width="32px" height="32px">
-                  <use xlinkHref={sprite + '#ac-1'} />
-                </IconVehicle>
+                <FlexContainer>
+                  <IconVehicle width="32px" height="32px">
+                    <use xlinkHref={sprite + '#ac-1'} />
+                  </IconVehicle>
+                  <IconText>AC</IconText>
+                </FlexContainer>
               </Label>
             </InputWrapper>
             <InputWrapper>
-              <Label>
-                <IconText> Automatic</IconText>
+              <Label
+                htmlFor="transmission"
+                isChecked={isChecked}
+                onClick={toggleCheckbox}
+              >
                 <VehicleInput
                   type="checkbox"
                   value="transmissionAutomatic"
                   name="transmission"
+                  id="transmission"
                 />
-                <IconVehicle width="32px" height="32px">
-                  <use xlinkHref={sprite + '#automatic-1'} />
-                </IconVehicle>
+                <FlexContainer>
+                  <IconVehicle width="32px" height="32px">
+                    <use xlinkHref={sprite + '#automatic-1'} />
+                  </IconVehicle>
+                  <IconText> Automatic</IconText>
+                </FlexContainer>
               </Label>
             </InputWrapper>
             <InputWrapper>
-              <IconText> Kitchen</IconText>
-              <Label>
-                <VehicleInput type="checkbox" value="kitchen" name="kitchen" />
-                <IconVehicle width="33px" height="33px">
-                  <use xlinkHref={sprite + '#icon-kitchen'} />
-                </IconVehicle>
+              <Label
+                htmlFor="kitchen"
+                isChecked={isChecked}
+                onClick={toggleCheckbox}
+              >
+                <VehicleInput
+                  type="checkbox"
+                  value="kitchen"
+                  name="kitchen"
+                  id="kitchen"
+                />
+                <FlexContainer>
+                  <IconVehicle width="33px" height="33px">
+                    <use xlinkHref={sprite + '#icon-kitchen'} />
+                  </IconVehicle>
+                  <IconText> Kitchen</IconText>
+                </FlexContainer>
               </Label>
             </InputWrapper>
             <InputWrapper>
-              <IconText>TV</IconText>
-              <Label>
+              <Label isChecked={isChecked} onClick={toggleCheckbox}>
                 <VehicleInput type="checkbox" value="TV" name="tv" />
-                <IconVehicle width="32px" height="32px">
-                  <use xlinkHref={sprite + '#icon-Tv-1'} />
-                </IconVehicle>
+                <FlexContainer>
+                  <IconVehicle width="32px" height="32px">
+                    <use xlinkHref={sprite + '#icon-Tv-1'} />
+                  </IconVehicle>
+                  <IconText>TV</IconText>
+                </FlexContainer>
               </Label>
             </InputWrapper>
             <InputWrapper>
-              <IconText> Shower/WC</IconText>
-              <Label>
+              <Label isChecked={isChecked} onClick={toggleCheckbox}>
                 <VehicleInput
                   type="checkbox"
                   value="showerToilet"
                   name="shower"
                 />
-                <IconVehicle width="33px" height="33px">
-                  <use xlinkHref={sprite + '#icon-shower'} />
-                </IconVehicle>
+                <FlexContainer>
+                  <IconVehicle width="33px" height="33px">
+                    <use xlinkHref={sprite + '#icon-shower'} />
+                  </IconVehicle>
+                  <IconText> Shower/WC</IconText>
+                </FlexContainer>
               </Label>
             </InputWrapper>
           </VehicleEquipmentWrapp>
           <FilterName>Vehicle Type</FilterName>
           <VehicleEquipmentWrapp>
             <InputWrapper>
-              <IconText> Van</IconText>
               <Label>
                 <VehicleInput
                   type="radio"
                   name="vehicleType"
                   value="panelTruck"
                 />
-                <IconVehicle width="40px" height="28px">
-                  <use xlinkHref={sprite + '#icon-fully-integrated'} />
-                </IconVehicle>
+                <FlexContainer>
+                  <IconVehicle width="40px" height="28px">
+                    <use xlinkHref={sprite + '#icon-fully-integrated'} />
+                  </IconVehicle>
+                  <IconText> Van</IconText>
+                </FlexContainer>
               </Label>
             </InputWrapper>
             <InputWrapper>
-              <IconText>Fully Integrated</IconText>
               <Label>
                 <VehicleInput
                   type="radio"
                   name="vehicleType"
                   value="fullyIntegrated"
                 />
-                <IconVehicle width="40px" height="28px">
-                  <use xlinkHref={sprite + '#icon-van'} />
-                </IconVehicle>
+                <FlexContainer>
+                  <IconVehicle width="40px" height="28px">
+                    <use xlinkHref={sprite + '#icon-van'} />
+                  </IconVehicle>
+                  <IconText>
+                    Fully <br /> Integrated
+                  </IconText>
+                </FlexContainer>
               </Label>
             </InputWrapper>
 
             <InputWrapper>
-              <IconText>Alcov</IconText>
               <Label>
                 <VehicleInput type="radio" name="vehicleType" value="alcove" />
-                <IconVehicle width="40px" height="28px">
-                  <use xlinkHref={sprite + '#icon-alcov'} />
-                </IconVehicle>
+                <FlexContainer>
+                  <IconVehicle width="40px" height="28px">
+                    <use xlinkHref={sprite + '#icon-alcov'} />
+                  </IconVehicle>
+                  <IconText>Alcov</IconText>
+                </FlexContainer>
               </Label>
             </InputWrapper>
           </VehicleEquipmentWrapp>

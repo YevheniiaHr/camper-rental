@@ -22,7 +22,7 @@ const FormSchema = Yup.object().shape({
 export const Forma = () => {
   const handleSubmit = action => {
     Notiflix.Notify.success(`Your order is accepted.`);
-    action.resetForm();
+    window.location.reload();
   };
 
   return (
