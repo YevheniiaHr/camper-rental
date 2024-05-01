@@ -1,6 +1,10 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-import { fetchCards, filterCampers } from './operations';
+import {
+  fetchAllCardsWitoutPagination,
+  fetchCards,
+  filterCampers,
+} from './operations';
 
 const handlePending = state => {
   state.isLoading = true;
@@ -49,7 +53,7 @@ const campersSlice = createSlice({
       .addCase(fetchCards.fulfilled, (state, action) => {
         state.isLoading = false;
         state.error = null;
-        state.campers = [...state.campers, ...action.payload];
+        state.campers = [...action.payload];
       })
       .addCase(fetchCards.rejected, handleRejected)
       .addCase(filterCampers.pending, handlePending)
@@ -58,7 +62,14 @@ const campersSlice = createSlice({
         state.error = null;
         state.campers = action.payload;
       })
-      .addCase(filterCampers.rejected, handleRejected);
+      .addCase(filterCampers.rejected, handleRejected)
+      .addCase(fetchAllCardsWitoutPagination.pending, handlePending)
+      .addCase(fetchAllCardsWitoutPagination.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.error = null;
+        state.campers = [...state.campers, ...action.payload];
+      })
+      .addCase(fetchAllCardsWitoutPagination.rejected, handleRejected);
   },
 });
 export const {

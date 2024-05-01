@@ -114,9 +114,7 @@ export const ModalWindow = ({ isOpen, onClose, data }) => {
                   </LinkAdd>
                 </ItemAdd>
               </ListAdd>
-              {isFeaturesContentVisible && (
-                <Features id={data._id} details={data.details} />
-              )}
+              {isFeaturesContentVisible && <Features id={data._id} {...data} />}
               {activeTab === 'reviews' && <Reviews reviews={data.reviews} />}
             </ContentModal>
           </WrappModal>

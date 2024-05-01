@@ -5,9 +5,21 @@ axios.defaults.baseURL = 'https://656dc2c3bcc5618d3c23e645.mockapi.io';
 
 export const fetchCards = createAsyncThunk(
   'campers/fetchAll',
-  async ({ page, limit }, thunkAPI) => {
+  async ({ page, limit, params }, thunkAPI) => {
     try {
-      const result = await fetchAllCards({ page, limit });
+      const result = await fetchAllCards({ page, limit, params });
+
+      return result;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+export const fetchAllCardsWitoutPagination = createAsyncThunk(
+  'campers/getAllwithoutPagination',
+  async (_, thunkAPI) => {
+    try {
+      const result = await fetchAllCards();
 
       return result;
     } catch (error) {

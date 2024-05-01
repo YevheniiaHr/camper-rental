@@ -53,10 +53,22 @@ export const Filter = () => {
   //   }
   //   dispatch(setVehicle(newFilter));
   // };
-  const [isChecked, setIsChecked] = useState(false);
+  const [isChecked, setIsChecked] = useState({
+    ac: false,
+    transmission: false,
+    kitchen: false,
+    TV: false,
+  });
 
-  const toggleCheckbox = () => {
-    setIsChecked(!isChecked);
+  const toggleCheckbox = checkboxId => {
+    setIsChecked(prevState => ({
+      ...prevState,
+      [checkboxId]: !prevState[checkboxId],
+    }));
+  };
+  const [vehicleTYpe, setVehicleType] = useState('');
+  const toggleVehicleType = value => {
+    setVehicleType(value);
   };
   return (
     <SideBar>
@@ -94,15 +106,12 @@ export const Filter = () => {
             <InputWrapper>
               <Label
                 htmlFor="ac"
-                isChecked={isChecked}
-                onClick={toggleCheckbox}
+                isChecked={isChecked.ac}
+                onClick={() => {
+                  toggleCheckbox('ac');
+                }}
               >
-                <VehicleInput
-                  type="checkbox"
-                  value="airConditioner"
-                  name="ac"
-                  id="ac"
-                />
+                <VehicleInput id="ac" type="checkbox" name="ac" />
                 <FlexContainer>
                   <IconVehicle width="32px" height="32px">
                     <use xlinkHref={sprite + '#ac-1'} />
@@ -112,11 +121,7 @@ export const Filter = () => {
               </Label>
             </InputWrapper>
             <InputWrapper>
-              <Label
-                htmlFor="transmission"
-                isChecked={isChecked}
-                onClick={toggleCheckbox}
-              >
+              <Label id="transmission" htmlFor="transmission">
                 <VehicleInput
                   type="checkbox"
                   value="transmissionAutomatic"
@@ -132,17 +137,8 @@ export const Filter = () => {
               </Label>
             </InputWrapper>
             <InputWrapper>
-              <Label
-                htmlFor="kitchen"
-                isChecked={isChecked}
-                onClick={toggleCheckbox}
-              >
-                <VehicleInput
-                  type="checkbox"
-                  value="kitchen"
-                  name="kitchen"
-                  id="kitchen"
-                />
+              <Label id="kitchen" htmlFor="kitchen">
+                <VehicleInput type="checkbox" value="kitchen" name="kitchen" />
                 <FlexContainer>
                   <IconVehicle width="33px" height="33px">
                     <use xlinkHref={sprite + '#icon-kitchen'} />
@@ -152,7 +148,7 @@ export const Filter = () => {
               </Label>
             </InputWrapper>
             <InputWrapper>
-              <Label isChecked={isChecked} onClick={toggleCheckbox}>
+              <Label id="TV" htmlFor="TV">
                 <VehicleInput type="checkbox" value="TV" name="tv" />
                 <FlexContainer>
                   <IconVehicle width="32px" height="32px">
@@ -163,7 +159,12 @@ export const Filter = () => {
               </Label>
             </InputWrapper>
             <InputWrapper>
-              <Label isChecked={isChecked} onClick={toggleCheckbox}>
+              <Label
+                id="shower"
+                htmlFor="shower"
+                isChecked={isChecked.shower}
+                onClick={() => toggleCheckbox('shower')}
+              >
                 <VehicleInput
                   type="checkbox"
                   value="showerToilet"
@@ -186,6 +187,8 @@ export const Filter = () => {
                   type="radio"
                   name="vehicleType"
                   value="panelTruck"
+                  checked={vehicleTYpe === 'panelTruck'}
+                  onChange={() => toggleVehicleType('panelTruck')}
                 />
                 <FlexContainer>
                   <IconVehicle width="40px" height="28px">

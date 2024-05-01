@@ -10,7 +10,39 @@ import { Item } from './Item';
 import { VehicleDetails } from 'components/VehicleDetails/VehicleDetails';
 import { Forma } from 'components/Forma/Forma';
 
-export const Features = ({ id, details }) => {
+export const Features = ({
+  id,
+  CD,
+  TV,
+  airConditioner,
+  bathroom,
+  beds,
+  freezer,
+  gas,
+  hob,
+  kitchen,
+  microwave,
+  radio,
+  shower,
+  toilet,
+  water,
+}) => {
+  const details = {
+    CD,
+    TV,
+    airConditioner,
+    bathroom,
+    beds,
+    freezer,
+    gas,
+    hob,
+    kitchen,
+    microwave,
+    radio,
+    shower,
+    toilet,
+    water,
+  };
   const getIconByKey = key => {
     switch (key) {
       case 'airConditioner':
