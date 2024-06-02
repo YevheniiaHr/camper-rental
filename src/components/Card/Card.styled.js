@@ -7,14 +7,6 @@ export const Item = styled.li`
   margin: 0;
   box-sizing: border-box;
   max-width: 888px;
-
-  // @media screen and (min-width: 768px) {
-  //   max-width: 700px;
-  // }
-
-  // @media screen and (min-width: 1440px) {
-  //   max-width: 888px;
-  // }
 `;
 export const Title = styled.h2`
   font-weight: 600;
@@ -76,16 +68,13 @@ export const TitleBox = styled.div`
   margin-bottom: 8px;
 `;
 export const ItemWrapper = styled.div`
-  @media screen and (min-width: 768px) {
-    display: flex;
-    gap: 24px;
-  }
+  display: flex;
+  gap: 24px;
 `;
 export const ListWrap = styled.div`
   display: flex;
   flex-direction: column;
   gap: 24px;
-  // justify-content: space-around;
 `;
 export const TextDetailItem = styled.p`
   margin-left: 8px;

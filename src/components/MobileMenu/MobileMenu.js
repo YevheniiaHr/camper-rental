@@ -6,7 +6,6 @@ import { Navigation } from 'components/Header/Navigation';
 const mobileRoot = document.querySelector('#mobile');
 
 export const MobileMenu = ({ onClose, isOpen }) => {
-  console.log('mobileRoot:', mobileRoot);
   return isOpen
     ? createPortal(
         <MobileWrapp>

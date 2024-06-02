@@ -44,7 +44,6 @@ const CustomRadioButton = ({
   icon,
   radioValue,
 }) => {
-  console.log(field, radioValue);
   return (
     <Label isChecked={field.value === radioValue}>
       <VehicleInput
@@ -79,7 +78,6 @@ export const Filter = () => {
           vehicleType: '',
         }}
         onSubmit={values => {
-          console.log(values);
           const { location, vehicleType, ...equipment } = values;
           dispatch(setLocation(location));
           dispatch(setVehicle(vehicleType));

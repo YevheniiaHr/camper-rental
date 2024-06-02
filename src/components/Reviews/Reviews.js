@@ -22,7 +22,7 @@ export const Reviews = ({ reviews }) => {
         </svg>
       );
     }
-    console.log(stars);
+
     return stars;
   };
 

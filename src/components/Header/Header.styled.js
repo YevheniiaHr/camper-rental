@@ -3,6 +3,7 @@ import styled from '@emotion/styled';
 export const StyledLink = styled(NavLink)`
   color: black;
   cursor: pointer;
+  font-size: 24px;
 
   &:hover {
     color: orange;
@@ -17,14 +18,12 @@ export const NavList = styled.ul`
   gap: 20px;
   align-items: center;
   margin-top: 50px;
-  @media (min-width: 1440px) {
-    flex-direction: row;
-    margin-top: 0;
-  }
+
+  flex-direction: row;
+  margin-top: 0;
 `;
 
 export const MobViewWrapper = styled.div`
-  // position: absolute;
   width: 100%;
   max-width: 375px;
   height: 60px;
@@ -33,12 +32,6 @@ export const MobViewWrapper = styled.div`
   display: flex;
   justify-content: flex-end;
   align-items: center;
-  // @media (min-width: 768px) {
-  //   height: 84px;
-  //   max-width: 768px;
-  //   padding-left: 32px;
-  //   padding-right: 32px;
-  // }
 `;
 export const BurgerButton = styled.button`
   background-color: transparent;
@@ -46,14 +39,10 @@ export const BurgerButton = styled.button`
   cursor: pointer;
 `;
 export const DeskHeaderWrap = styled.div`
-  background-color: green;
+  background-color: #e44847;
 
   padding-left: 96px;
   padding-right: 96px;
-
-  // transform: translateX(-50%);
-
-  // width: 1440px;
 
   height: 70px;
 

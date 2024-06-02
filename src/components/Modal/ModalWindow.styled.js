@@ -9,7 +9,7 @@ export const WrappModal = styled.div`
 export const ContentModal = styled.div``;
 export const GalleryWrapper = styled.div`
   width: 902px;
-  // height: 310px;
+
   display: flex;
   gap: 16px;
   margin-bottom: 24px;
@@ -18,6 +18,7 @@ export const ImageGallery = styled.img`
   border-radius: 10px;
   width: 290px;
   height: 310px;
+  object-fit: cover;
 `;
 export const TextModal = styled.p`
   margin-bottom: 44px;
@@ -25,7 +26,7 @@ export const TextModal = styled.p`
 export const ListAdd = styled.ul`
   display: flex;
   gap: 40px;
-  // margin-bottom: 24px;
+
   border-bottom: 1px solid #e7e9fc;
 `;
 export const ItemAdd = styled.li`

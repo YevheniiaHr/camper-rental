@@ -52,6 +52,7 @@ export const Form = styled(FormikForm)`
   width: 448px;
 
   margin-top: 44px;
+  margin-bottom: 40px;
 `;
 export const FormTitle = styled.h2`
   font-weight: 600;
