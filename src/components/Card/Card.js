@@ -136,8 +136,8 @@ export const Card = ({
           <TitleBox>
             <Title>{name}</Title>
             <Price>
-              €
-              {Number(price).toLocaleString('en', { minimumFractionDigits: 2 })}
+              €{price.toFixed(2)}
+              {/* {Number(price).toLocaleString('en', { minimumFractionDigits: 2 })} */}
             </Price>
             <ButtonFavorite onClick={handleFavoriteToggle} type="button">
               {isFavorite ? (

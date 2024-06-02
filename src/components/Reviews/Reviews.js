@@ -14,12 +14,15 @@ export const Reviews = ({ reviews }) => {
   const getRatingStars = rating => {
     let stars = [];
     for (let i = 1; i <= 5; i++) {
-      if (i <= rating) {
-        stars.push(`icon-Rating-${i}`);
-      } else {
-        stars.push(`icon-Rating-nofill-${i}`);
-      }
+      const color = i <= rating ? '#ffc531' : '#f2f4f7';
+
+      stars.push(
+        <svg key={i} width="16px" height="16px" fill={color} stroke={color}>
+          <use xlinkHref={`${sprite}#icon-Rating`} />
+        </svg>
+      );
     }
+    console.log(stars);
     return stars;
   };
 
@@ -31,11 +34,7 @@ export const Reviews = ({ reviews }) => {
             <Avatar>{item.reviewer_name.charAt(0).toUpperCase()}</Avatar>
             <UserName>{item.reviewer_name}</UserName>
 
-            {getRatingStars(item.reviewer_rating).map((icon, index) => (
-              <svg key={index} width="16px" height="16px">
-                <use xlinkHref={`${sprite}#${icon}`} />
-              </svg>
-            ))}
+            {getRatingStars(item.reviewer_rating)}
 
             <UserComment> {item.comment}</UserComment>
           </UserReview>

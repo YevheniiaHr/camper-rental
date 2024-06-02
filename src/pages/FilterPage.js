@@ -13,8 +13,10 @@ import {
   selectIsLoading,
   selectVehicleTypeFilter,
 } from '../redux/cards/selectors';
-// import { fetchAllCards } from 'service/api';
+
 import { LoadMoreBtn } from 'components/Button/LoadMoreBtn.styled';
+import { fetchAllCards } from 'service/api';
+import { Container } from 'components/Layout/Layout.styled';
 
 const FilterPage = () => {
   const limit = 4;
@@ -28,27 +30,21 @@ const FilterPage = () => {
     setPage(page + 1);
   };
 
-  // useEffect(() => {
-  //   (async () => {
-  //     if (page !== 1) {
-  //       return;
-  //     }
-  //     const totalResult = await fetchAllCards({ page: 1, limit: '' });
-  //     // console.log(totalResult);
-  //     setTotalPage(Math.ceil(totalResult.length / limit));
-  //   })();
-  //   dispatch(fetchCards({ page, limit }));
-  // }, [dispatch, page, limit]);
+  useEffect(() => {
+    (async () => {
+      if (page !== 1) {
+        return;
+      }
+      const totalResult = await fetchAllCards({ page: 1, limit: '' });
+
+      setTotalPage(Math.ceil(totalResult.length / limit));
+    })();
+    dispatch(fetchCards({ page, limit }));
+  }, [dispatch, page, limit]);
 
   const location = useSelector(selectFilteredLocation);
   const filteredEquipment = useSelector(selectEquipmentFilter);
   const filteredVehicle = useSelector(selectVehicleTypeFilter);
-
-  // useEffect(() => {
-  //   dispatch(fetchCards({ page, limit }));
-  // }, [dispatch, page, limit]);
-
-  // const [filteredCampers, setFilteredCampers] = useState(campers);
 
   useEffect(() => {
     const params = [];
@@ -61,60 +57,33 @@ const FilterPage = () => {
     }
 
     if (filteredEquipment?.ac) {
-      params.push(`airConditioner=${filteredEquipment.ac}`);
+      params.push(`airConditioner=${Number(filteredEquipment.ac)}`);
     }
     if (filteredEquipment?.transmission) {
-      params.push(`transmission=${filteredEquipment.transmission}`);
+      params.push(
+        `transmission=${filteredEquipment.transmission && 'automatic'}`
+      );
     }
     if (
       Array.isArray(filteredEquipment?.kitchen) &&
       filteredEquipment?.kitchen[0]
     ) {
-      params.push(`kitchen=${filteredEquipment.kitchen}`);
+      params.push(`kitchen=${Number(filteredEquipment.kitchen)}`);
     }
     if (Array.isArray(filteredEquipment?.tv) && filteredEquipment?.tv[0]) {
-      params.push(`TV=${filteredEquipment.tv}`);
+      params.push(`TV=${Number(filteredEquipment.tv)}`);
     }
     if (
       Array.isArray(filteredEquipment?.shower) &&
       filteredEquipment?.shower[0]
     ) {
-      params.push(`shower=${filteredEquipment.shower}`);
+      params.push(`shower=${Number(filteredEquipment.shower)}`);
     }
     dispatch(fetchCards({ page, limit, params }));
   }, [location, filteredEquipment, filteredVehicle, dispatch, page]);
 
-  // useEffect(() => {
-  //   setFilteredCampers(campers);
-  // }, [campers]);
-  // const filteredCampers = () => {
-  //   let result = campers;
-  //   if (location) {
-  //     result = result.filter(item => item.location.includes(location));
-  //   }
-  //   if (filteredVehicle) {
-  //     result = result.filter(item => item.form === filteredVehicle);
-  //   }
-  //   if (filteredEquipment?.ac[0]) {
-  //     result = result.filter(item => item.airConditioner);
-  //   }
-  //   if (filteredEquipment?.transmission[0]) {
-  //     result = result.filter(item => item.transmission === 'automatic');
-  //   }
-  //   if (filteredEquipment?.kitchen[0]) {
-  //     result = result.filter(item => item.kitchen);
-  //   }
-  //   if (filteredEquipment?.tv[0]) {
-  //     result = result.filter(item => item.tv);
-  //   }
-  //   if (filteredEquipment?.shower[0]) {
-  //     result = result.filter(item => item.shower);
-  //   }
-  //   return result;
-  // };
-
   return (
-    <>
+    <Container>
       <Filter />
       <FilterContainer>
         {error && <div>Error: {error}</div>}
@@ -130,7 +99,7 @@ const FilterPage = () => {
           </LoadMoreBtn>
         )}
       </FilterContainer>
-    </>
+    </Container>
   );
 };
 export default FilterPage;

@@ -1,6 +1,6 @@
 import { Suspense } from 'react';
 import { Outlet, useLocation } from 'react-router-dom';
-import { Container } from './Layout.styled';
+
 import { Header } from 'components/Header/Header';
 
 export const Layout = () => {
@@ -11,11 +11,9 @@ export const Layout = () => {
     <>
       {!isHomePage && <Header />}
 
-      <Container>
-        <Suspense fallback={null}>
-          <Outlet />
-        </Suspense>
-      </Container>
+      <Suspense fallback={null}>
+        <Outlet />
+      </Suspense>
     </>
   );
 };
