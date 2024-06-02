@@ -132,7 +132,7 @@ export const Features = ({
         );
 
       default:
-        return null; // Повертаємо null, якщо іконка не знайдена
+        return null;
     }
   };
   return (

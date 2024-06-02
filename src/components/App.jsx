@@ -14,7 +14,6 @@ export const App = () => {
   return (
     <>
       <Suspense>
-        {' '}
         <Routes>
           <Route path="/" element={<Layout />}>
             <Route index element={<HomePage />} />

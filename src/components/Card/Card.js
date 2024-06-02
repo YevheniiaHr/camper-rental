@@ -135,10 +135,7 @@ export const Card = ({
         <Container>
           <TitleBox>
             <Title>{name}</Title>
-            <Price>
-              €{price.toFixed(2)}
-              {/* {Number(price).toLocaleString('en', { minimumFractionDigits: 2 })} */}
-            </Price>
+            <Price>€{price.toFixed(2)}</Price>
             <ButtonFavorite onClick={handleFavoriteToggle} type="button">
               {isFavorite ? (
                 <svg width="16px" height="16px">
@@ -154,7 +151,7 @@ export const Card = ({
 
           <LocationWrap>
             <Rating>
-              <svg width="16px" height="16px">
+              <svg width="16px" height="16px" fill="#ffc531" stroke="#ffc531">
                 <use xlinkHref={sprite + '#icon-Rating'} />
               </svg>
               {rating} ({reviews.length} Reviews)

@@ -1,6 +1,5 @@
 import styled from '@emotion/styled';
 import { Field } from 'formik';
-// import sprite from '../sprite.svg';
 
 export const SideBar = styled.aside`
   margin-top: 64px;

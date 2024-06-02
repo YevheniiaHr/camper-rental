@@ -40,7 +40,7 @@ const customStyles = {
 export const ModalWindow = ({ isOpen, onClose, data }) => {
   const [activeTab, setActiveTab] = useState('features');
   const [isFeaturesContentVisible, setIsFeaturesContentVisible] =
-    useState(false);
+    useState(true);
 
   const handleTabChange = tab => {
     setActiveTab(tab === activeTab ? null : tab);
